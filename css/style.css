@@ -1,4 +1,8 @@
-/* MISE EN FORME DU LOGO DANS LA NAV BARRE */
+body {
+	height: 10000px;
+}
+
+/* MISE EN FORME DU LOGO DANS LA NAV BARRE 1*/
 
 #logo {
 	height: 50px;
@@ -10,25 +14,77 @@
 	margin-left: 10px;
 }
 
-#searchBar>nav {
-	height: 50px;
-	line-height: inherit !important;
-}
-
-#searchBar>i {
-	line-height: inherit !important;
-}
-
-#search-bar {
-	height: 50px;
-}
-
 .flex {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
 
-.containe {
-	width: 60%;
+#nav-mobile>li {
+	margin-right: 10px;
+} 
+
+.btn {
+	text-transform: inherit;
+}
+
+.contain {
+	width: 35%;
+	margin-left: 10%;
+}
+
+/* MISE EN FORME DU LOGO DANS LA NAV BARRE 2*/
+
+#logo2 {
+	height: 50px;
+	width: 75px;
+	background-image: url(../images/VodIn.PNG);
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 7px;
+	margin-left: 10px;
+}
+
+.contain2 {
+	width: 35%;
+	margin: auto;
+	margin-top: 10px;
+}
+
+/* MISE EN FORME DU LOGO DANS LA NAV BARRE 3*/
+
+#logo3 {
+	height: 115px;
+	width: 172.5px;
+	background-image: url(../images/VodIn.PNG);
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 7px;
+	margin-left: 10px;
+}
+
+.contain3 {
+	width: 35%;
+	margin: auto;
+}
+
+/* TEST */
+
+#test {
+	margin-top: 100px;
+}
+
+.flex2 {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.bordure {
+	border: 3px solid green;
+}
+
+.contain4 {
+	width: 80%;
+	margin: auto;
 }
