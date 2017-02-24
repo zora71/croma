@@ -1,0 +1,34 @@
+/* MISE EN FORME DU LOGO DANS LA NAV BARRE */
+
+#logo {
+	height: 50px;
+	width: 75px;
+	background-image: url(../images/VodIn.PNG);
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 7px;
+	margin-left: 10px;
+}
+
+#searchBar>nav {
+	height: 50px;
+	line-height: inherit !important;
+}
+
+#searchBar>i {
+	line-height: inherit !important;
+}
+
+#search-bar {
+	height: 50px;
+}
+
+.flex {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.containe {
+	width: 60%;
+}
