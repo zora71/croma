@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+	<meta name="description" content"Test logo group/ungroup">
+	<link rel="stylesheet" href="stylesheet.css">
+<style>
+
+    .red { color: red; }
+    .blue { color: blue; }
+    .purple { color: purple; }
+
+
+    #group-label {
+	    position: relative;
+		    top: 20px;
+    }
+
+    #group-label span {
+        font-family: 'kalambold';
+        position: absolute;
+		font-size: 50px;
+			transition: top .5s ease;
+				line-height: 10px;
+    }
+
+    input + label span:nth-child(1){ top: 0}
+    input + label span:nth-child(2){ top: 5px }
+    input + label span:nth-child(3){ top: 10px }
+    input + label span:nth-child(4){ top: 15px }
+    input + label span:nth-child(5){ top: 20px }
+
+    input:checked + label span:nth-child(1){ }
+    input:checked + label span:nth-child(2){ top: 10px; }
+    input:checked + label span:nth-child(3){ top: 20px; }
+    input:checked + label span:nth-child(4){ top: 5px; }
+    input:checked + label span:nth-child(5){ top: 15px; }
+
+</style>
+    </head>
+
+    <body>
+	    <input id="group" type="checkbox" style="display:none">
+	    <label id="group-label" for="group">
+        <span class="red">-</span>
+        <span class="blue">-</span>
+        <span class="purple">-</span>
+        <span class="red">-</span>
+        <span class="blue">-</span>
+	    </label>
+    </body>
+</html>
