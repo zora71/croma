@@ -1,0 +1,8 @@
+# mac
+.DS_STORE
+
+# app
+/vendor/
+app/config.php
+/phpDocumentor.phar
+*.log
