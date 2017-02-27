@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/materialize.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
-
+		<link rel="icon" type="image/png" href="images/logoVodIn.PNG" />
 	</head>
 
 	<body>
@@ -36,6 +36,14 @@
 				</nav>
 			</div>
 		</header>
+		<div id="section" class="bordure flexGauche">
+			<div id="sideBar" class="bordure1">
+
+			</div>
+			<div id="video" class="bordure2">
+
+			</div>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/materialize.min.js"></script>
 		<script src="js/script.js"></script>
