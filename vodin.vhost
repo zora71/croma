@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    DocumentRoot /var/www/vodin
+    ServerName vodin.olivier.marino.name
+
+    <IfModule rewrite_module>
+        RewriteEngine On
+
+	RewriteCond %{SCRIPT_FILENAME} ^/public [OR]
+	RewriteCond %{SCRIPT_FILENAME} /$
+        RewriteRule ^(/public|)(/.*[^/])/?$ $2 [R,L]
+
+	RewriteRule (.*) /public/$1 [QSA]
+    </IfModule>
+</VirtualHost>
