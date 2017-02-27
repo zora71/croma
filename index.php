@@ -18,7 +18,6 @@
 			<div class="navbar-fixed">
 				<nav>
 					<div class="nav-wrapper teal white">
-						 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 						<a href="#" class="brand-logo"><div id="logo"></div></a>
 						<ul id="nav-mobile" class="right hide-on-med-and-down">
 							<li><a class="waves-effect waves-light btn green darken-4">Connexion</a></li>
@@ -36,11 +35,82 @@
 				</nav>
 			</div>
 		</header>
-		<div id="section" class="bordure flexGauche">
-			<div id="sideBar" class="bordure1">
+		<div id="section" class="row bordure flexGauche ">
+			<div id="sideBar" class="col l2 bordure1">
 
 			</div>
-			<div id="video" class="bordure2">
+			<div id="video" class="col l10 bordure2">
+				<div class="row group">
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
+
+				<div class="row group">
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
+
+				<div class="row group">
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
+
+				<div class="row group">
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
+
+				<div class="row group">
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure1">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
+
+				<div class="row group">
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+					<div class="col l3 bordure2">
+					<img src="images/VodIn.PNG" class="vignette">
+					</div>
+				</div>
 
 			</div>
 		</div>
