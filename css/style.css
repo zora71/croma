@@ -1,5 +1,5 @@
 body {
-	height: 10000px;
+	/*height: 10000px;*/
 }
 
 .bordure {
@@ -30,6 +30,16 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.flex2 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: inherit;
+	margin-right: inherit;
+	left: inherit;
+	right: inherit;
 }
 
 #nav-mobile>li {
@@ -65,18 +75,28 @@ body {
 /* MISE EN FORME DU BODY */    
 
 #section {
-	height: 600px;
+	position: fixed;
+	height: auto;
+	width: 100%;
 	margin-top: 50px;
 }
 
 #sideBar {
 	height: auto;
-	width: 15%;
 }
 
 #video {
-	height: auto;
-	width: 85%;
+	height: 600px;
+	overflow: auto;
+	margin-left: inherit;
+	margin-right: inherit;
+	left: inherit;
+	right: inherit;
+}
+
+img {
+	height: 100%;
+	width: 100%;
 }
 
 .flexDroit {
@@ -87,4 +107,18 @@ body {
 .flexGauche {
 	display: flex;
 	justify-content: flex-start;
+}
+
+.group {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.col.l3 {
+	margin-left: inherit !important;
+}
+
+.row {
+	margin-left: inherit !important;
 }
