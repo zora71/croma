@@ -49,6 +49,9 @@ body {
 .btn {
 	text-transform: inherit;
 }
+#nav-mobile{
+    margin-top: 200px;
+}
 
 .contain {
 	width: 35%;
