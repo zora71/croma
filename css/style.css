@@ -2,7 +2,7 @@ body {
 	/*height: 10000px;*/
 }
 
-/*.bordure {
+.bordure {
 	border: 3px solid red;
 }
 
@@ -12,9 +12,9 @@ body {
 
 .bordure2 {
 	border: 3px solid green;
-}*/
+}
 
-/* MISE EN FORME DU LOGO DANS LA NAV BARRE 1*/
+/* MISE EN FORME DU LOGO DANS LA NAV BARRE */
 
 #logo {
 	height: 50px;
@@ -32,14 +32,10 @@ body {
 	align-items: center;
 }
 
-.flex2 {
+.flex-space {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-around;
 	align-items: center;
-	margin-left: inherit;
-	margin-right: inherit;
-	left: inherit;
-	right: inherit;
 }
 
 #nav-mobile>li {
@@ -78,6 +74,44 @@ body {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* MISE EN FORME DE LA MODAL PREFERENCE */
+
+#modal1 {
+	max-height: inherit;
+	width: 25%;
+}
+
+
+
+#gauche {
+	height: 40px;
+	width: 40px;
+	background-image: url(../images/gauche.PNG);
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	border: 3px solid #1b5e20;
+	border-radius: 3px;
+} 
+
+#droite {
+	height: 40px;
+	width: 40px;
+	background-image: url(../images/droite.PNG);
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	border-radius: 3px;
+} 
+
+#defaut {
+	display: none;
+}
+
+#droit {
+	display: none;
 }
 
 /* MISE EN FORME DU BODY */    
@@ -130,14 +164,24 @@ body {
 	right: inherit;
 }
 
+p {
+	z-index: 2;
+	margin: inherit;
+	margin-top: -30px;
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	color: white;
+}
+
 img {
 	height: 100%;
 	width: 100%;
+	z-index: 1;
 }
 
 .flexDroit {
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: row-reverse;
 }
 
 .flexGauche {
