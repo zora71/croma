@@ -2,6 +2,7 @@
 
 <html lang="fr">
 
+
 <head>
 
 	<meta charset="utf-8">
@@ -41,8 +42,117 @@
 	</header>
 	<div id="section" class="row bordure flexGauche ">
 		<div id="sideBar" class="col l2 bordure1">
+            <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <!------------------------------------------------------------------Platefromes vidéos-------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-		</div>
+
+                <div id="platYou">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoYoutube.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Youtube</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="platTw">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoTwitch.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Twitch</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="platDM">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoMotion.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Daily motion</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <!---------------------------------------------------------------------Chaines et abonnements------------------------------------------------------------------------->
+                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logochaine1.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>PlayerG</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoChaine2.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>Dunod</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoChaine3.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>Daily Emotions</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoChaine4.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>François le français</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoChaine5.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>Bonheur au quotidien</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Chaine">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoChaine6.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h6>Geek inside</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      
+    
+            <!---------------------------------------------------------------------------------------------------------------------------------->
+            <!------------------------------------------Debut classement vidéos----------------------------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------------------------------------->
+		
 		<div id="video" class="col l10 bordure2">
 			<div class="row group">
 				<div class="col l3 bordure">
@@ -132,5 +242,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/script.js"></script>
+<footer>
+       
+            <div class="container-fluid green-text text-darken-4 center">© 2017 Designed & Created by CROMA, All rights reserved.    <a href="#" class="green-text text-darken-4 waves-effect waves-teal">   - Mentions légales</a>     <a href="#" class="green-text text-darken-4 waves-effect waves-teal active">   - A propos  </a></div>
+        
+    </footer>
 </body>
+
 </html>
