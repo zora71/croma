@@ -49,9 +49,6 @@ body {
 .btn {
 	text-transform: inherit;
 }
-#nav-mobile{
-    margin-top: 200px;
-}
 
 .contain {
 	width: 35%;
@@ -75,10 +72,18 @@ body {
 	margin-left: 5px;
 }
 
+#searchNav {
+	position: fixed;
+	height: 64px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* MISE EN FORME DU BODY */    
 
 #section {
-	position: fixed;
+	
 	height: auto;
 	width: 100%;
 	margin-top: 50px;
@@ -89,7 +94,7 @@ body {
 }
 
 #video {
-	height: 600px;
+	height: 750px;
 	overflow: auto;
 	margin-left: inherit;
 	margin-right: inherit;
