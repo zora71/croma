@@ -7,6 +7,10 @@ use \Utils\Random\ImageGenerator;
 use \Utils\Random\TextGenerator;
 use \Utils\Random\UuidGenerator;
 
+/**
+ * Ce controller est utilisé comme une api distante
+ * c-a-d qu'il aurait pu être développé dans un projet a part
+ */
 class StubController extends Controller {
 
     public function __construct() {
