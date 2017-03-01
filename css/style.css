@@ -2,7 +2,7 @@ body {
 	/*height: 10000px;*/
 }
 
-.bordure {
+/*.bordure {
 	border: 3px solid red;
 }
 
@@ -12,7 +12,7 @@ body {
 
 .bordure2 {
 	border: 3px solid green;
-}
+}*/
 
 /* MISE EN FORME DU LOGO DANS LA NAV BARRE 1*/
 
@@ -90,7 +90,35 @@ body {
 }
 
 #sideBar {
-	height: auto;
+	height: 750px;
+    overflow: auto;
+    
+}
+
+#platYou{
+    /*height: auto;*/
+    width: 100%;
+    background-color: #b71c1c;
+    color: white;
+}
+#platTw{
+    /*height: auto;*/
+    width: 100%;
+    background-color: #5e35b1;
+    color: white;
+}
+#platDM{
+    /*height: auto;*/
+    width: 100%;
+    background-color: #01579b;
+    color: white;
+}
+
+.chaine{
+    width: 100%;
+    
+    color: #000;
+    
 }
 
 #video {
@@ -129,4 +157,14 @@ img {
 
 .row {
 	margin-left: inherit !important;
+}
+
+footer {
+    height: auto;
+    margin: auto;
+}
+
+footer a:hover{
+    
+    
 }
