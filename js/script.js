@@ -11,17 +11,29 @@ $(document).ready(function() {
       startingTop: '4%', // depart du top style attribute
       endingTop: '10%', // fin du top style attribute
      ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
-        console.log(modal, trigger);
       },
       complete: function() { alert("Paramètre enregistré"); } // Appel de Modal close
     }
   );
  
+	var section = $('#section');
+	var droite = $('#droite');
+	var gauche = $('#gauche');
+	
+	droite.click(function(){
+		gauche.css('border', 'inherit');
+		droite.css('border', '3px solid #1b5e20');
+		section.removeClass("flexGauche").addClass("flexDroit");
+	});
+	
+	gauche.click(function(){
+		droite.css('border', 'inherit');
+		gauche.css('border', '3px solid #1b5e20');
+		section.removeClass("flexDroit").addClass("flexGauche");
+	});
 
 
-
-
-
+	$('.tooltipped').tooltip({delay: 50});
 
 
 
