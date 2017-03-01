@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 24 Février 2017 à 16:27
+-- Généré le :  Mer 01 Mars 2017 à 09:45
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.5.38
 
@@ -59,6 +59,7 @@ CREATE TABLE `users` (
   `lastname` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
+  `email` varchar(250) NOT NULL,
   `uuid` varchar(250) NOT NULL,
   `lastConnexion` datetime NOT NULL,
   `password` varchar(60) NOT NULL,
@@ -101,7 +102,8 @@ ALTER TABLE `styles`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`idUser`),
   ADD UNIQUE KEY `pseudo` (`pseudo`),
-  ADD UNIQUE KEY `password` (`password`);
+  ADD UNIQUE KEY `password` (`password`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Index pour la table `users_platforms`
