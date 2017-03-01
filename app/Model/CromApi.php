@@ -1,6 +1,6 @@
 <?php
 
-namespace \Croma;
+namespace Croma;
 
 class CromApi {
 

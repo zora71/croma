@@ -14,31 +14,36 @@ class TestController extends Controller {
     
     public function userKey() {
         $stub = new Stub();
+        $data = $stub->connect();
         echo '<pre>';
-        var_dump($stub->getUserKey());
+        var_dump($data);
     }
 
     public function userChannels($id) {
         $stub = new Stub();
+        $data = $stub->getUserChannels($id);
         echo '<pre>';
-        var_dump($stub->getUserChannels($id));
+        var_dump($data);
     }
 
     public function channelVideos($id) {
         $stub = new Stub();
+        $data = $stub->getChannelVideos($id);
         echo '<pre>';
-        var_dump($stub->getChannelVideos($id));
+        var_dump($data);
     }
 
     public function videos() {
         $stub = new Stub();
+        $data = $stub->searchVideos();
         echo '<pre>';
-        var_dump($stub->searchVideos());
+        var_dump($data);
     }
 
     public function searchVideos($search) {
         $stub = new Stub();
+        $data = $stub->searchVideos($search);
         echo '<pre>';
-        var_dump($stub->searchVideos($search));
+        var_dump($data);
     }
 }

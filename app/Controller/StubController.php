@@ -92,16 +92,20 @@ class StubController extends Controller {
 
     /* Formulaire factisse pour accepter ou refuser la connection */
     public function form($callback) { ?>
-    <DOCTYPE html>
-    <html>
+    <!DOCTYPE html>
+    <html lang="fr">
         <head>
             <meta charset="utf-8">
             <title>Stub oAuth</title>
             <meta name="description" content="Fake authent for stub api">
         </head>
         <body>
-            <a href="<?="$callback?apiKey=".UuidGenerator::generate('whirlpool')?>"></a>
-            <a href="<?=$callback?>"></a>
+            <h1>L'application Web souhaite acceder a vos paramètres</h1>
+            <ul>
+                <li>L'applicaiton souhaite pouvoir récupérer vos abonnements (vos chaines et leurs vidéos)</li>
+            </ul>
+            <a href="<?=urldecode(urldecode($callback)).'?key='.UuidGenerator::generate('whirlpool')?>">Accepter</a>
+            <a href="<?=urldecode(urldecode($callback)).'?key='?>">Refuser</a>
         </body>
     </html>
 
