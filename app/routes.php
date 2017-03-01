@@ -23,6 +23,7 @@
 
         ['GET', '/stub/debug',                                                  'Stub#debug', 'stub_debug'],
         ['GET', '/stub/clear',                                                  'Stub#clear', 'stub_clear'],
+        ['GET', '/stub/form/[:callback]',                                       'Stub#form', 'stub_form'],
         ['GET', '/stub/uuid/[:apiKey]',                                         'Stub#userId', 'stub_user'],
         ['GET', '/stub/channels/[:uuid]',                                       'Stub#userChannels', 'stub_user_channels'],
         ['GET', '/stub/videos/[:uuid]',                                         'Stub#channelVideos', 'stub_channel_videos'],

@@ -86,12 +86,39 @@ class StubController extends Controller {
         $this->showJson(array_slice($videos, $minIndex, $limit));
     }
 
+    /* Formulaire factisse pour accepter ou refuser la connection */
+    public function form($callback) { ?>
+    <DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Stub oAuth</title>
+            <meta name="description" content="Fake authent for stub api">
+        </head>
+        <body>
+            <a href="<?="$callback?apiKey=".UuidGenerator::generate('whirlpool')?>"></a>
+            <a href="<?=$callback?>"></a>
+        </body>
+    </html>
+
+    <?php }
+
+    /**
+     * Retourne l'apiKey de l'utilisateur courant
+     */
+    public function apiKey() {
+        $_STUB = &$_SESSION['STUB'];
+        if (isset($_STUB['apiKey'])) $this->showJson([ 'apiKey' => $_STUB['apiKey']]);
+        else $this->redirectToRoute('stub_form');
+    }
+
     /**
      * Retourne l'id de l'utilisateur correspondant a la clé api
      */
     public function userId($apiKey) {
         $_STUB = &$_SESSION['STUB'];
         if (!isset($_STUB[$apiKey])) $_STUB[$apiKey] = time();
+
         return $this->showJson([ 'uuid' => $_STUB[$apiKey]]);
     }
 
@@ -119,15 +146,15 @@ class StubController extends Controller {
      */
     public function channelVideos($channelId) {
         $_STUB = &$_SESSION['STUB'];
-        if (isset($_STUB[$channelId])) return $_STUB[$channelId];
+        if (!isset($_STUB[$channelId])) $_STUB[$channelId] = [];
+        $videos = &$_STUB['videos'];
 
         $rand = mt_rand(5, 35);
         for ($i = 0; $i < $rand; $i++) {
             $videos[] = $this->getRandomVideo();
         }
 
-        $_STUB[$channelId]['videos'] = $videos;
-        return $videos;
+        return $this->showJson($videos);
     }
 
     /* Methodes de debug */
