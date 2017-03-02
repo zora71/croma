@@ -36,9 +36,9 @@ $(document).ready(function() {
 	
 	$('.switch').on('change', function(e){
 		if($(this).prop("checked")){
-			$('#' + $(this).data('plat') ).show();
+			$('.' + $(this).data('plat') ).removeClass("switch-off").addClass("switch-on");
 		}else{
-			$('#' + $(this).data('plat') ).hide();
+			$('.' + $(this).data('plat') ).removeClass("switch-on").addClass("switch-off");
 		}
 	})
 

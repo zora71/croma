@@ -90,7 +90,7 @@
                 </div>
 
 
-                <div id="platYou">
+                <div id="platYou" class="platform switch-on youtube">
                     <div class="row">
                         <div class="col s2">
                             <img src="images/logoYoutube.jpg">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="platTw">
+                <div id="platTw" class="platform switch-on twitch">
                     <div class="row">
                         <div class="col s2">
                             <img src="images/logoTwitch.jpg">
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="platDM">
+                <div id="platDM" class="platform switch-on dailymotion">
                     <div class="row">
                         <div class="col s2">
                             <img src="images/logoMotion.jpg">
@@ -123,7 +123,7 @@
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <!---------------------------------------------------------------------Chaines et abonnements------------------------------------------------------------------------->
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                <div class="Chaine">
+                <div class="Chaine youtube switch-on">
                     <div class="row">
                         <div class="col s2">
                             <img src="images/logochaine1.jpg">
@@ -311,7 +311,7 @@
                         <div class="switch">
                             <label>
                                 Off
-                                <input id="switchYoutube" class="switch" data-plat="platYou" type="checkbox" checked>
+                                <input id="switchYoutube" class="switch" data-plat="youtube" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>
@@ -320,7 +320,7 @@
                         <div class="switch">
                             <label>
                                 Off
-                                <input id="switchTwitch" class="switch" data-plat="platTw" type="checkbox" checked>
+                                <input id="switchTwitch" class="switch" data-plat="twitch" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>
@@ -329,7 +329,7 @@
                         <div class="switch">
                             <label>
                                 Off
-                                <input id="switchDailymotion" class="switch" data-plat="platDM" type="checkbox" checked>
+                                <input id="switchDailymotion" class="switch" data-plat="dailymotion" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>

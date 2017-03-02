@@ -318,15 +318,20 @@ input:checked + label #A {
 	margin-top: 50px;
 }
 
+/* MISE EN FORME SIDEBAR */
+
 #sideBar {
 	height: 750px;
     overflow: auto;
     
 }
 
+.platform {
+	overflow: hidden;
+}
+
 #platYou{
     /*height: auto;*/
-    width: 100%;
     background-color: #b71c1c;
     color: white;
     -moz-box-shadow: -1px 7px 30px #000000;
@@ -335,7 +340,6 @@ input:checked + label #A {
 }
 #platTw{
     /*height: auto;*/
-    width: 100%;
     background-color: #5e35b1;
     color: white;
     -moz-box-shadow: -1px 7px 30px #000000;
@@ -344,7 +348,6 @@ input:checked + label #A {
 }
 #platDM{
     /*height: auto;*/
-    width: 100%;
     background-color: #01579b;
     color: white;
     -moz-box-shadow: -1px 7px 30px #000000;
@@ -352,12 +355,30 @@ input:checked + label #A {
     box-shadow: -1px 7px 30px #000000;
 }
 
-.chaine{
+.Chaine{
     width: 100%;
-    
     color: #000;
+	overflow: hidden;
     
 }
+
+.switch-on {
+	height: 75px;
+	transition: all 1s ease;
+}
+
+
+
+.switch-off {
+	height: 0;
+	transition: all 1s ease;
+}
+
+.switch-off .col {
+	float: none;
+}
+
+/* MISE EN FORME DIV VIDEO */
 
 #section2 {
 	margin: 0px 50px;
