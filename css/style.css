@@ -334,6 +334,7 @@ input:checked + label #Z {
 
 #sideBar {
 	height: 750px;
+	width: 20%;
     overflow: auto;
     padding: 20px;
     
@@ -394,6 +395,7 @@ input:checked + label #Z {
 /* MISE EN FORME DIV VIDEO */
 
 #section2 {
+	width: 80%;
 	margin: 0px 50px;
 	margin-left: inherit;
 	margin-right: inherit;
@@ -429,7 +431,7 @@ input:checked + label #Z {
 	pointer-events: none;
 }
 
-#toto > .overlay:after {
+#section2 > .overlay:after {
 	bottom: 0px;
 	background: linear-gradient(to bottom, transparent, #fff);
 	content: "";
@@ -441,7 +443,7 @@ input:checked + label #Z {
 	pointer-events: none;
 }
 
-p {
+.caption {
 	z-index: 2;
 	margin: inherit;
 	margin-top: -30px;
