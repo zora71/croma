@@ -43,6 +43,43 @@
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <!------------------------------------------------------------------Platefromes vidéos-------------------------------------------------------------------------------->
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+
+                <div id="platYou" class="platform switch-on youtube">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoYoutube.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Youtube</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="platTw" class="platform switch-on twitch">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoTwitch.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Twitch</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="platDM" class="platform switch-on dailymotion">
+                    <div class="row">
+                        <div class="col s2">
+                            <img src="images/logoMotion.jpg">
+                        </div>
+                        <div class="col s10">
+                            <h4>Daily motion</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                <!---------------------------------------------------------------------Chaines et abonnements------------------------------------------------------------------------->
+                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                
+                
                 <div id="tri-chaine">
                     <div class="row"><!--début-row-tri-->
                         <div class="col s4">
@@ -78,9 +115,13 @@
 
                     <div class="col s4">
                             <div id="tri-date">
-                                <p > </p>
-                                <p class="ion-arrow-down-c"> Date </p>
-
+                                <input id="date-sort" type="checkbox" style="display:none">
+                                <label id="date-sort-label" for="date-sort">
+                                    <div id="A">Date</div>
+                                 <div id="arrow1" class="ion-arrow-down-c"> </div>
+                                
+                                       
+                                </label>
 
                                 
 
@@ -89,40 +130,6 @@
                     </div><!--fin row tri-->
                 </div>
 
-
-                <div id="platYou" class="platform switch-on youtube">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoYoutube.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Youtube</h4>
-                        </div>
-                    </div>
-                </div>
-                <div id="platTw" class="platform switch-on twitch">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoTwitch.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Twitch</h4>
-                        </div>
-                    </div>
-                </div>
-                <div id="platDM" class="platform switch-on dailymotion">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoMotion.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Daily motion</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                <!---------------------------------------------------------------------Chaines et abonnements------------------------------------------------------------------------->
-                <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <div class="Chaine youtube switch-on">
                     <div class="row">
                         <div class="col s2">

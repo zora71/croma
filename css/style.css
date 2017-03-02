@@ -10,6 +10,9 @@
 body {
 	/*height: 10000px;*/
 }
+h4{
+    font-size: 20px;
+}
 
 .bordure {
 	border: 3px solid red;
@@ -55,6 +58,10 @@ body {
     content: none;
 }
 
+#date-sort-label:after,
+#date-sort-label:before {
+    content: none;
+}
 
 /*::::::::::*/
 /*Début anim*/
@@ -70,19 +77,24 @@ body {
     -moz-animation: cssAnimation 1.3196s 16 ease;
     -o-animation: cssAnimation 1.3196s 16 ease;*/
     
-    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+    transform: rotate(0deg) translateY(-15px) rotate(0deg);
     transition: all 1s ease;
 }
 
 input:checked + label #A {
-    transform: rotate(180deg) translateY(-10px) rotate(-180deg);
+    transform: rotate(180deg) translateY(-15px) rotate(-180deg);
 }
 
 #Z{
-    transform: rotate(-180deg) translateY(-10px) rotate(-180deg);
+    transform: rotate(0deg) translateY(15px) rotate(0deg);
     transition: all 1s ease;
   
 }
+
+input:checked + label #Z {
+    transform: rotate(180deg) translateY(15px) rotate(-180deg);
+}
+
 
 /*#arrow1{
     animation: animateArrow1 5s ease infinite;
@@ -110,8 +122,8 @@ input:checked + label #A {
 
 
 @keyframes animateZ {
-    from { transform: rotate(-180deg) translateY(10px) rotate(-180deg) }
-    to { transform: rotate(0deg) translateY(10px) rotate(-180deg); }
+    from { transform: rotate(-180deg) translateY(10px) rotate(180deg) }
+    to { transform: rotate(0deg) translateY(10px) rotate(0deg); }
 }
 
 /*@keyframes animateArrow1 {
@@ -323,6 +335,7 @@ input:checked + label #A {
 #sideBar {
 	height: 750px;
     overflow: auto;
+    padding: 20px;
     
 }
 
