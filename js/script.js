@@ -2,6 +2,8 @@ $(document).ready(function() {
 	Materialize.updateTextFields();
 
 	$('#modal1').modal();
+	
+    $('#modal2').modal();
 
 	$('.modal').modal({
 		dismissible: true, // Fermeture de la modal si on click en dehors 
@@ -13,6 +15,18 @@ $(document).ready(function() {
 		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
 		},
 		complete: function() { alert("Paramètre enregistré"); } // Appel de Modal close
+	});
+    
+    $('.modal2').modal({
+		dismissible: true, // Fermeture de la modal si on click en dehors 
+		opacity: .5, // Opacity de la modal
+		inDuration: 300, // Transition et duration
+		outDuration: 200, // Transition hors duration
+		startingTop: '4%', // depart du top style attribute
+		endingTop: '10%', // fin du top style attribute
+		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
+		},
+		complete: function() { alert("Bonjour xXMuggenXx"); } // Appel de Modal close
 	});
 
 	var section = $('#section');
@@ -65,19 +79,23 @@ $('.mini + div').hide();
 			width: 376,
 			height: 226,
 			transition: 'all .7s ease'
-		}).attr('src', $(this).data('url')).show().css(
-			{top: 0,
+		}).attr('src', $(this).data('url')).show().css({
+            top: 0,
 			left: 0,
 			width: '100%',
-			height: 750}
-		);
-		$('#close').slideUp(200).delay(800).show(200);
+			height: 750
+        });
+		$('#close').slideUp(200).delay(1000).show(200);
 		
 	});
 	
 	$('#close').on('click', function(){
 		$(this).hide();
-		$('.mini').hide().attr('src', '');
+		$('.mini').css({
+            height: '0%',
+            transition: 'all .1s ease'
+        }).attr('src', '').hide(1000);
+        
 	})
 
 

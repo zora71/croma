@@ -221,7 +221,9 @@ input:checked + label #Z {
   input:checked + label span:nth-child(5){ top: 15px; }
 
 
-
+.brand-logo {
+    z-index: 1000;
+}
 
 #logo {
 	height: 50px;
@@ -288,6 +290,11 @@ input:checked + label #Z {
 #modal1 {
 	max-height: inherit;
 	width: 25%;
+}
+
+#modal2 {
+    max-height: inherit;
+    width: 15%;
 }
 
 
@@ -490,4 +497,103 @@ footer {
 footer a:hover{
     
     
+}
+
+/* MISE EN FORME DE LA CLASS MODAL2 */
+
+.modal2 {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #fafafa;
+  padding: 0;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+}
+
+@media only screen and (max-width: 992px) {
+  .modal2 {
+    width: 80%;
+  }
+}
+
+.modal2 h1, .modal2 h2, .modal2 h3, .modal2 h4 {
+  margin-top: 0;
+}
+
+.modal2 .modal-content {
+  padding: 24px;
+}
+
+.modal2 .modal2-close {
+  cursor: pointer;
+}
+
+.modal2 .modal2-footer {
+  border-radius: 0 0 2px 2px;
+  background-color: #fafafa;
+  padding: 4px 6px;
+  height: 56px;
+  width: 100%;
+}
+
+.modal2 .modal2-footer .btn, .modal2 .modal2-footer .btn-large, .modal2 .modal2-footer .btn-flat {
+  float: right;
+  margin: 6px 0;
+}
+
+.modal2-overlay {
+  position: fixed;
+  z-index: 999;
+  top: -100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 125%;
+  width: 100%;
+  background: #000;
+  display: none;
+  will-change: opacity;
+}
+
+.modal2.modal2-fixed-footer {
+  padding: 0;
+  height: 70%;
+}
+
+.modal2.modal2-fixed-footer .modal2-content {
+  position: absolute;
+  height: calc(100% - 56px);
+  max-height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.modal2.modal2-fixed-footer .modal2-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+}
+
+.modal2.bottom-sheet {
+  top: auto;
+  bottom: -100%;
+  margin: 0;
+  width: 100%;
+  max-height: 45%;
+  border-radius: 0;
+  will-change: bottom, opacity;
+}
+
+#inscription {
+    text-transform: inherit;
+}
+
+#inscrit {
+    margin-bottom: inherit;
 }
