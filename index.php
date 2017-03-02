@@ -7,7 +7,7 @@
         <title>Vod-In</title>
         <link rel="stylesheet" href="css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/ionicons.css">
+        <link rel="stylesheet" href="icons/ionicons.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" type="image/png" href="images/logoVodIn.PNG" />
     </head>
@@ -44,7 +44,7 @@
                 <!------------------------------------------------------------------Platefromes vidéos-------------------------------------------------------------------------------->
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                 <div id="tri-chaine">
-                    <div class="row"><!--début tri-->
+                    <div class="row"><!--début-row-tri-->
                         <div class="col s4">
                             <div id="tri-group" class="btn-floating">
 
@@ -62,13 +62,14 @@
                         </div>
 
                     <div class="col s4">
-                            <div id="tri-az" class="btn-floating">
-
-
-
-
-                                <p> A </p>
-                                 <p class="ion-arrow-down-c"> Z</p>
+                            <div id="tri-az">
+                                <input id="az-sort" type="checkbox" style="display:none">
+                                <label id="az-sort-label" for="az-sort">
+                                    <div id="A"> A </div>
+                                 <div id="arrow1" class="ion-arrow-down-c"> </div>
+                                <div id="Z"> Z </div>
+                                       
+                                </label>
 
 
 
@@ -76,17 +77,12 @@
                         </div>
 
                     <div class="col s4">
-                            <div id="tri-date" class="btn-floating">
+                            <div id="tri-date">
+                                <p > </p>
+                                <p class="ion-arrow-down-c"> Date </p>
 
 
-                                <input id="group" type="checkbox" style="display:none">
-                                <label id="group-label" for="group">
-                                    <span class="yt">-</span>
-                                    <span class="dm">-</span>
-                                    <span class="tw">-</span>
-                                    <span class="yt">-</span>
-                                    <span class="dm">-</span>
-                                </label>
+                                
 
                             </div>
                         </div>

@@ -36,6 +36,9 @@ body {
     color: white;
     padding-top: 5px;
     padding-left: 25px;
+    -moz-box-shadow: -1px 7px 30px #000000;
+    -webkit-box-shadow: -1px 7px 30px #000000;
+    box-shadow: -1px 7px 30px #000000;
     
     
 }
@@ -44,7 +47,82 @@ body {
 /*    font-size: 5px;*/
 /*    margin-left: 3px;*/
     color: #000;
+    position: relative;
 }
+
+#az-sort-label:after,
+#az-sort-label:before {
+    content: none;
+}
+
+
+/*::::::::::*/
+/*Début anim*/
+/*::::::::::*/
+
+#A, #Z, #arrow1 {
+    position: absolute;
+    top: 0; bottom: 0;
+}
+#A {
+    /*
+    -webkit-animation: cssAnimation 1.3196s 16 ease;
+    -moz-animation: cssAnimation 1.3196s 16 ease;
+    -o-animation: cssAnimation 1.3196s 16 ease;*/
+    
+    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+    transition: all 1s ease;
+}
+
+input:checked + label #A {
+    transform: rotate(180deg) translateY(-10px) rotate(-180deg);
+}
+
+#Z{
+    transform: rotate(-180deg) translateY(-10px) rotate(-180deg);
+    transition: all 1s ease;
+  
+}
+
+/*#arrow1{
+    animation: animateArrow1 5s ease infinite;
+  
+}*/
+
+/*
+@-webkit-keyframes cssAnimation {
+    from { -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+    to { -webkit-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+}
+@-moz-keyframes cssAnimation {
+    from { -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+    to { -moz-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+}
+@-o-keyframes cssAnimation {
+    from { -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+    to { -o-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+}
+*/
+@keyframes animateA {
+    from { transform: rotate(0deg) translateY(-10px) rotate(0deg) }
+    to { transform: rotate(-180deg) translateY(-10px) rotate(-180deg); }
+}
+
+
+@keyframes animateZ {
+    from { transform: rotate(-180deg) translateY(10px) rotate(-180deg) }
+    to { transform: rotate(0deg) translateY(10px) rotate(-180deg); }
+}
+
+/*@keyframes animateArrow1 {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(-180deg) }
+}*/
+
+/*::::::::::::::*/
+/*:::fin anim*:::/
+/*::::::::::::::*/
+
 
 #tri-az div{
     width: 100%;
@@ -70,6 +148,13 @@ body {
     height: 40px;
     width: 40px;
     background-color: #fff;
+    -moz-box-shadow: -1px 7px 30px #000000;
+    -webkit-box-shadow: -1px 7px 30px #000000;
+    box-shadow: -1px 7px 30px #000000;
+}
+
+#tri-date{
+    color: #000;
 }
 
 .yt {
@@ -244,18 +329,27 @@ body {
     width: 100%;
     background-color: #b71c1c;
     color: white;
+    -moz-box-shadow: -1px 7px 30px #000000;
+    -webkit-box-shadow: -1px 7px 30px #000000;
+    box-shadow: -1px 7px 30px #000000;
 }
 #platTw{
     /*height: auto;*/
     width: 100%;
     background-color: #5e35b1;
     color: white;
+    -moz-box-shadow: -1px 7px 30px #000000;
+    -webkit-box-shadow: -1px 7px 30px #000000;
+    box-shadow: -1px 7px 30px #000000;
 }
 #platDM{
     /*height: auto;*/
     width: 100%;
     background-color: #01579b;
     color: white;
+    -moz-box-shadow: -1px 7px 30px #000000;
+    -webkit-box-shadow: -1px 7px 30px #000000;
+    box-shadow: -1px 7px 30px #000000;
 }
 
 .chaine{
