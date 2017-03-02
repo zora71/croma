@@ -28,6 +28,7 @@
                         <li>
                             <!-- appel administration du site -->
                             <a href="<?php echo $this->url('default_index'); ?>"><i class="fa fa-gear fa-fw"></i> ACCUEIL</a>
+				
                         </li>
                         <li class="divider">
                         </li>
@@ -96,6 +97,8 @@
         </div>
         <!-- /.row -->
         <div class="row">
+			
+					
             <?= $this->section('main_content') ?>
         </div>
         <!-- /.row -->

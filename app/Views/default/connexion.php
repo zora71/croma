@@ -14,6 +14,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <form method="POST" role="form" action="<?php echo $this->url($loginRoute); ?>">
+								
                                 <div class="form-group">
                                     <label class="control-label" for="usernameOrEmail">Nom ou Email</label>
                                     <input name="usernameOrEmail" id="usernameOrEmail" type="text" class="form-control" placeholder="Enter username OR Email" required/>
@@ -22,6 +23,7 @@
                                     <label class="control-label" for="pwd">Mot de passe</label>
                                     <input name="pwd" id="pwd" class="form-control" type="password" placeholder="Enter password" required/>
                                 </div>
+								
                                 <button type="submit" class="btn btn-lg btn-primary">Se connecter</button>
                             </form>
                         </div>

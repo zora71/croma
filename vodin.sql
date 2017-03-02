@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 01 Mars 2017 à 09:45
+-- Généré le :  Jeu 02 Mars 2017 à 15:35
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.5.38
 
@@ -32,8 +32,18 @@ DROP TABLE IF EXISTS `platforms`;
 CREATE TABLE `platforms` (
   `idPlatform` int(11) NOT NULL,
   `label` varchar(50) NOT NULL,
-  `logo` varchar(200) NOT NULL
+  `url` varchar(200) NOT NULL,
+  `actif` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `platforms`
+--
+
+INSERT INTO `platforms` (`idPlatform`, `label`, `url`, `actif`) VALUES
+(1, 'youtube', 'www.youtube.com', 1),
+(2, 'dailymotion', 'www.dailymotion.com', 0),
+(3, 'twitch', 'www.twitch.tv', 1);
 
 -- --------------------------------------------------------
 
@@ -47,6 +57,17 @@ CREATE TABLE `styles` (
   `fileName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `styles`
+--
+
+INSERT INTO `styles` (`idStyle`, `fileName`) VALUES
+(1, 'green.css'),
+(2, 'black.css'),
+(6, 'red.css'),
+(7, 'green.css'),
+(8, 'white.css');
+
 -- --------------------------------------------------------
 
 --
@@ -55,17 +76,26 @@ CREATE TABLE `styles` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `idUser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `lastname` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
   `uuid` varchar(250) NOT NULL,
+  `isAnonymous` tinyint(1) DEFAULT '1',
   `lastConnexion` datetime NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `pwdToken` varchar(100) NOT NULL,
-  `settings` text NOT NULL
+  `setting` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `pseudo`, `email`, `uuid`, `isAnonymous`, `lastConnexion`, `password`, `pwdToken`, `setting`) VALUES
+(83, 'amar', 'zora', 'zora', 'z@gmail.fr', 'f96b6ab5-82a7-4f85-f84a-a3848740a50b', 0, '2017-03-02 09:53:00', '$2y$10$FnDcEiF.0CyepIw5HWEiFOK9g3StOdVWifJeToM.NvPkSgkMsdfFO', '', ''),
+(88, 'cuda', 'isabelle', 'isa', 'isa@gmail.fr', '70a9a4e1-9b39-4135-f682-5871152fb323', 0, '2017-03-02 09:56:32', '$2y$10$cdgS1lcaKg3ZGkwStoBQXuyxlqJs5qfIXkPKW4ngXLpJERrXXw0Vq', '', '');
 
 -- --------------------------------------------------------
 
@@ -75,7 +105,7 @@ CREATE TABLE `users` (
 
 DROP TABLE IF EXISTS `users_platforms`;
 CREATE TABLE `users_platforms` (
-  `idUser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `idPlatform` int(11) NOT NULL,
   `apiKey` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -100,16 +130,15 @@ ALTER TABLE `styles`
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`idUser`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pseudo` (`pseudo`),
-  ADD UNIQUE KEY `password` (`password`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Index pour la table `users_platforms`
 --
 ALTER TABLE `users_platforms`
-  ADD KEY `idUser` (`idUser`),
+  ADD KEY `idUser` (`id`),
   ADD KEY `idPlatform` (`idPlatform`);
 
 --
@@ -120,17 +149,17 @@ ALTER TABLE `users_platforms`
 -- AUTO_INCREMENT pour la table `platforms`
 --
 ALTER TABLE `platforms`
-  MODIFY `idPlatform` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPlatform` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 --
 -- Contraintes pour les tables exportées
 --
@@ -139,7 +168,7 @@ ALTER TABLE `users`
 -- Contraintes pour la table `users_platforms`
 --
 ALTER TABLE `users_platforms`
-  ADD CONSTRAINT `users_platforms_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_platforms_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `users_platforms_ibfk_2` FOREIGN KEY (`idPlatform`) REFERENCES `platforms` (`idPlatform`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

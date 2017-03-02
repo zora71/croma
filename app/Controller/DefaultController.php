@@ -126,7 +126,7 @@ class DefaultController extends Controller{
 	public function connexion() {
 
 		$app = getApp(); // récup. variable globale instance de l'application (getApp ds W\view\globals.php)
-
+        
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -138,11 +138,14 @@ class DefaultController extends Controller{
 				
 				$this->auth->logUserIn($currentUser); // récup. info utilisateur pr stockage $_SESSION
 				Cookie::set('uuid', $currentUser['uuid']);
-				$oldUuid = $_SESSION['uuid'];
                 
-                echo 'ancien uuid généré '.$oldUuid;
-                
-                // suppression uuid (en BDD) généré automatiquement à l'accès
+                // ajout date dernière connexion sur Uuid
+
+				$this->currentUser->update(array('lastConnexion'=>date('Y-m-d H:i:s')), $currentUser['id']) ;
+				
+
+                // suppression Uuid (en BDD) généré automatiquement à l'accès
+                $oldUuid = $_SESSION['uuid'];
 				$oldUser = $this->currentUser->deleteByUuid($oldUuid);
                 
                 // redirection sur page d'accueil (index)
