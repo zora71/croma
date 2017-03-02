@@ -200,98 +200,101 @@
             <!------------------------------------------Debut classement vidéos----------------------------------------------------------------->
             <!---------------------------------------------------------------------------------------------------------------------------------->
 
-            <div id="video" class="col l10">
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre: <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+			<div id="section2">
+				<div id="video" class="col l10">
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre: <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-                <div class="row group">
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                    <div class="col l3 z-depth-5">
-                        <img src="images/VodIn.PNG" class="vignette">
-                        <p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
-                    </div>
-                </div>
+					<div class="row group">
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+						<div class="col l3 z-depth-5">
+							<img src="images/VodIn.PNG" class="vignette">
+							<p>Titre <span>Minecraft</span> Temp: <span>2.55</span></p>
+						</div>
+					</div>
 
-            </div>
+				</div>
+				<div class="overlay"></div>
+			</div>
         </div>
 
         <!-- Modal Structure -->
@@ -307,12 +310,12 @@
                         </form>
                     </fieldset>
                     <fieldset>
-                        <legend>Choix des plateformes</legend>
+                        <legend>Vu des plateformes</legend>
                         <!-- Switch -->
                         <div class="switch">
                             <label>
                                 Off
-                                <input type="checkbox" checked>
+                                <input id="switchYoutube" class="switch" data-plat="platYou" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>
@@ -321,7 +324,7 @@
                         <div class="switch">
                             <label>
                                 Off
-                                <input type="checkbox" checked>
+                                <input id="switchTwitch" class="switch" data-plat="platTw" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>
@@ -330,7 +333,7 @@
                         <div class="switch">
                             <label>
                                 Off
-                                <input type="checkbox" checked>
+                                <input id="switchDailymotion" class="switch" data-plat="platDM" type="checkbox" checked>
                                 <span class="lever"></span>
                                 On
                             </label>

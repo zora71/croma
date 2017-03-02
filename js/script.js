@@ -32,8 +32,15 @@ $(document).ready(function() {
 		section.removeClass("flexDroit").addClass("flexGauche");
 	});
 
-
 	$('.tooltipped').tooltip({delay: 50});
+	
+	$('.switch').on('change', function(e){
+		if($(this).prop("checked")){
+			$('#' + $(this).data('plat') ).show();
+		}else{
+			$('#' + $(this).data('plat') ).hide();
+		}
+	})
 
 
 

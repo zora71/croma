@@ -265,13 +265,52 @@ body {
     
 }
 
-#video {
-	height: 750px;
-	overflow: auto;
+#section2 {
+	margin: 0px 50px;
 	margin-left: inherit;
 	margin-right: inherit;
 	left: inherit;
 	right: inherit;
+	z-index: 1;
+	position: relative;
+}
+
+#video {
+	width: 100%;
+	height: 750px;
+	overflow: auto;
+}
+#section2 > .overlay {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+/*	background-color: red;*/
+	pointer-events: none;
+}
+
+#section2 > .overlay:before {
+	background: linear-gradient(to top, transparent, #fff);
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	z-index: 50;
+	pointer-events: none;
+}
+
+#toto > .overlay:after {
+	bottom: 0px;
+	background: linear-gradient(to bottom, transparent, #fff);
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	z-index: 50;
+	pointer-events: none;
 }
 
 p {
