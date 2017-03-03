@@ -1,3 +1,12 @@
+		<footer class="footer text-center">
+                  
+			&copy; 2017 Designed & Created by CROMA, All rights reserved - 
+			<a href="mentions.php">Mentions légales</a>
+		</footer>
+	<!-- Fermeture du div container (entete.php) -->
+	</div>
+<!--	<script src="js/recherche.js"></script>-->
+
 <!-- jQuery -->
 <script src="<?= $this->assetUrl('vendor/jquery/jquery.min.js') ?>"></script>
 
@@ -32,3 +41,5 @@
         }
     });
 </script>
+</body>
+</html>
