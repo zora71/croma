@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 02 Mars 2017 à 15:35
+-- Généré le :  Ven 03 Mars 2017 à 13:41
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.5.38
 
@@ -41,8 +41,8 @@ CREATE TABLE `platforms` (
 --
 
 INSERT INTO `platforms` (`idPlatform`, `label`, `url`, `actif`) VALUES
-(1, 'youtube', 'www.youtube.com', 1),
-(2, 'dailymotion', 'www.dailymotion.com', 0),
+(1, 'youtube', 'www.youtube.com', 0),
+(2, 'dailymotion', 'www.dailymotion.com', 1),
 (3, 'twitch', 'www.twitch.tv', 1);
 
 -- --------------------------------------------------------
@@ -66,7 +66,8 @@ INSERT INTO `styles` (`idStyle`, `fileName`) VALUES
 (2, 'black.css'),
 (6, 'red.css'),
 (7, 'green.css'),
-(8, 'white.css');
+(8, 'white.css'),
+(9, 'boutonrd.css');
 
 -- --------------------------------------------------------
 
@@ -81,8 +82,9 @@ CREATE TABLE `users` (
   `firstname` varchar(100) NOT NULL,
   `pseudo` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
+  `avatar` varchar(250) NOT NULL,
   `uuid` varchar(250) NOT NULL,
-  `isAnonymous` tinyint(1) DEFAULT '1',
+  `emailValid` tinyint(1) DEFAULT '1',
   `lastConnexion` datetime NOT NULL,
   `password` varchar(100) NOT NULL,
   `pwdToken` varchar(100) NOT NULL,
@@ -93,9 +95,12 @@ CREATE TABLE `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `pseudo`, `email`, `uuid`, `isAnonymous`, `lastConnexion`, `password`, `pwdToken`, `setting`) VALUES
-(83, 'amar', 'zora', 'zora', 'z@gmail.fr', 'f96b6ab5-82a7-4f85-f84a-a3848740a50b', 0, '2017-03-02 09:53:00', '$2y$10$FnDcEiF.0CyepIw5HWEiFOK9g3StOdVWifJeToM.NvPkSgkMsdfFO', '', ''),
-(88, 'cuda', 'isabelle', 'isa', 'isa@gmail.fr', '70a9a4e1-9b39-4135-f682-5871152fb323', 0, '2017-03-02 09:56:32', '$2y$10$cdgS1lcaKg3ZGkwStoBQXuyxlqJs5qfIXkPKW4ngXLpJERrXXw0Vq', '', '');
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `pseudo`, `email`, `avatar`, `uuid`, `emailValid`, `lastConnexion`, `password`, `pwdToken`, `setting`) VALUES
+(83, 'amar', 'zora', 'zora', 'z@gmail.fr', '', 'f96b6ab5-82a7-4f85-f84a-a3848740a50b', 0, '2017-03-02 09:53:00', '$2y$10$FnDcEiF.0CyepIw5HWEiFOK9g3StOdVWifJeToM.NvPkSgkMsdfFO', '', ''),
+(88, 'cuda', 'isabelle', 'isa', 'isa@gmail.fr', '', '70a9a4e1-9b39-4135-f682-5871152fb323', 0, '2017-03-02 09:56:32', '$2y$10$cdgS1lcaKg3ZGkwStoBQXuyxlqJs5qfIXkPKW4ngXLpJERrXXw0Vq', '', ''),
+(89, 'ramenatte', 'david', 'doudou', 'david.ramenatte@gmail.com', '', 'c024dad4-d34c-40b4-e11f-6e748694d87f', 1, '2017-03-03 13:05:26', '$2y$10$robHnb7lXxwPBU2Y//0sduqY4EKcXMk6W7A0P4ScVhkQoAlB1B/xm', '', ''),
+(91, 'allioui', 'hatim', 'hatim', 'ha@mail.fr', '', '4a788c56-2b74-4fe9-e52f-8efb75c54a2a', 0, '0000-00-00 00:00:00', '$2y$10$j2QR8hD2SRVkUb/aha003ORXddxo3L/m3fs.18a0F2eZPylDAFqOy', '', ''),
+(92, '', '', '752cc31f-8200-4473-de70-7f7aa6392be9', '752cc31f-8200-4473-de70-7f7aa6392be9', '', '752cc31f-8200-4473-de70-7f7aa6392be9', 1, '0000-00-00 00:00:00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -154,12 +159,12 @@ ALTER TABLE `platforms`
 -- AUTO_INCREMENT pour la table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idStyle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 --
 -- Contraintes pour les tables exportées
 --
