@@ -112,6 +112,7 @@ class DefaultController extends Controller{
 			// hashage du mot de passe
 			$_POST['password'] = $this->auth->hashPassword($_POST['password']);
 			if ($user = $this->currentUser->findByUuid($_SESSION['uuid'])) {
+				$_POST['isAnonymous']= false;
 				// stockage de l'utilisateur inséré pour log suivant
 				$newUser = $this->currentUser->update($_POST, $user['id']) ;
 				if ($newUser) {
