@@ -215,7 +215,7 @@
                             <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
                         </div>
                         <div class="player col l3 z-depth-5">
-                            <img src="images/VodIn.PNG" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                            <img src="images/VodIn.PNG" class="vignette" data-url="//www.dailymotion.com/embed/video/x55o4hw">
                             <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
                         </div>
                     </div>

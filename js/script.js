@@ -56,7 +56,8 @@ $(document).ready(function() {
 	});
 $('.mini').hide();
 $('.mini + div').hide();
-	$('.vignette').click(function (e) {
+	$('.player').click(function (e) {
+		$('.mini').attr('style','');
 		var v = $('#video');
 		console.log(v)
 		function findPos(obj) {
@@ -70,31 +71,49 @@ $('.mini + div').hide();
 		}
 		
 		var pos = findPos($(this).get(0));
+		console.log($('.player').index(this));
+		var rect = $('.player').get($('.player').index(this)).getBoundingClientRect();
+		console.log(rect.y);
 		$('.mini').css({
 			zIndex: 2000,
 			position: 'absolute',
 			backgroundColor: 'black',
 			top: pos.y,
 			left: pos.x,
-			width: 376,
-			height: 226,
-			transition: 'all .7s ease'
-		}).attr('src', $(this).data('url')).show().css({
+			width: rect.width,
+			height: rect.height,
+			opacity: 1,
+			transition: 'top .7s .1s ease, left .7s .1s ease, width .7s .1s ease, height .7s .1s ease, opacity 5s 0s ease'})
+			.css('-moz-transition', 'top .7s .1s ease, left .7s .1s ease, width .7s .1s ease, height .7s .1s ease, opacity 5s 0s ease')
+			.css('-webkit-transition', 'top .7s .1s ease, left .7s .1s ease, width .7s .1s ease, height .7s .1s ease, opacity 5s 0s ease')
+			.css('-ms-transition', 'top .7s .1s ease, left .7s .1s ease, width .7s .1s ease, height .7s .1s ease, opacity 5s 0s ease')
+			.css('-o-transition', 'top .7s .1s ease, left .7s .1s ease, width .7s .1s ease, height .7s .1s ease, opacity 5s 0s ease').attr('src', $(this).find('.vignette').data('url')).show().css({
             top: 0,
 			left: 0,
 			width: '100%',
-			height: 750
+			height: 750,
+			opacity: 1
         });
-		$('#close').slideUp(200).delay(1000).show(200);
+
+		$('#close').data('left', pos.x).data('top', pos.y).slideUp(200).delay(1000).show(200);
 		
 	});
 	
 	$('#close').on('click', function(){
+		var rect = $('.player')[0].getBoundingClientRect();
 		$(this).hide();
 		$('.mini').css({
-            height: '0%',
-            transition: 'all .1s ease'
-        }).attr('src', '').hide(1000);
+			zIndex: -2000,
+			opacity: 0,
+            width: rect.width,
+			height: rect.height,
+			left: $(this).data('left'),
+			top: $(this).data('top'),
+			transition: 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease'})
+			.css('-moz-transition', 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease')
+			.css('-webkit-transition', 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease')
+			.css('-ms-transition', 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease')
+			.css('-o-transition', 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease').attr('src', '');
         
 	})
 
