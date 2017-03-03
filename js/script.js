@@ -32,17 +32,20 @@ $(document).ready(function() {
 	var section = $('#section');
 	var droite = $('#droite');
 	var gauche = $('#gauche');
+    var close = $('#close');
 
 	droite.click(function(){
 		gauche.css('border', 'inherit');
 		droite.css('border', '3px solid #1b5e20');
 		section.removeClass("flexGauche").addClass("flexDroit");
+        close.removeClass("btn-gauche").addClass("btn-droit");
 	});
 
 	gauche.click(function(){
 		droite.css('border', 'inherit');
 		gauche.css('border', '3px solid #1b5e20');
 		section.removeClass("flexDroit").addClass("flexGauche");
+        close.removeClass("btn-droit").addClass("btn-gauche");
 	});
 
 	$('.tooltipped').tooltip({delay: 50});

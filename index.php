@@ -340,7 +340,7 @@
                 <div class="overlay">
                 </div>
                 <iframe class="mini" frameborder="0" allowfullscreen></iframe>
-                <div id="close" class="btn-floating waves-effect waves-light red" style="width:50px;height:50px;z-index:3000;position:absolute;top:-25px;left:-25px"><i class="material-icons">close</i></div>
+                <div id="close" class="btn-floating waves-effect waves-light red btn-gauche"><i class="material-icons">close</i></div>
             </div>
         </div>
 
