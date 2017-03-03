@@ -75,7 +75,7 @@ class DefaultController extends Controller{
 			if ($user = $this->currentUser->findByUuid($uuid)){
 				//... Uuid existante, on le récupère
 				$_SESSION['uuid'] = $user['uuid'];
-				if (!$user['isAnonymous']) $this->auth->logUserIn($user);
+				if (!$user['emailValid']) $this->auth->logUserIn($user);
 				
 			}else{
 				//... Uuid NON existant (expirée) en BDD... générer Uuid en BDD
@@ -93,8 +93,8 @@ class DefaultController extends Controller{
 			Cookie::set('uuid', $newUuid);
 
 			// pseudo et email (clé unique en BDD), on est obligé de les renseigner
-            // isAnonymous chargé à vrai (utilisateur non inscrit)
-			$this->currentUser->insert(array('uuid'=>$newUuid, 'pseudo'=>$newUuid, 'email'=>$newUuid, 'isAnonymous'=>true));
+            // emailValid chargé à vrai (utilisateur non inscrit, email non valider)
+			$this->currentUser->insert(array('uuid'=>$newUuid, 'pseudo'=>$newUuid, 'email'=>$newUuid, 'emailValid'=>true));
 			// mise en session
 			$_SESSION['uuid'] = $newUuid;
 
@@ -112,7 +112,8 @@ class DefaultController extends Controller{
 			// hashage du mot de passe
 			$_POST['password'] = $this->auth->hashPassword($_POST['password']);
 			if ($user = $this->currentUser->findByUuid($_SESSION['uuid'])) {
-				$_POST['isAnonymous']= false;
+
+				$_POST['emailValid']= false;
 				// stockage de l'utilisateur inséré pour log suivant
 				$newUser = $this->currentUser->update($_POST, $user['id']) ;
 				if ($newUser) {
