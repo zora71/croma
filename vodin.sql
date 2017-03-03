@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 03 Mars 2017 à 13:41
+-- Généré le :  Ven 03 Mars 2017 à 15:46
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.5.38
 
@@ -98,9 +98,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `pseudo`, `email`, `avatar`, `uuid`, `emailValid`, `lastConnexion`, `password`, `pwdToken`, `setting`) VALUES
 (83, 'amar', 'zora', 'zora', 'z@gmail.fr', '', 'f96b6ab5-82a7-4f85-f84a-a3848740a50b', 0, '2017-03-02 09:53:00', '$2y$10$FnDcEiF.0CyepIw5HWEiFOK9g3StOdVWifJeToM.NvPkSgkMsdfFO', '', ''),
 (88, 'cuda', 'isabelle', 'isa', 'isa@gmail.fr', '', '70a9a4e1-9b39-4135-f682-5871152fb323', 0, '2017-03-02 09:56:32', '$2y$10$cdgS1lcaKg3ZGkwStoBQXuyxlqJs5qfIXkPKW4ngXLpJERrXXw0Vq', '', ''),
-(89, 'ramenatte', 'david', 'doudou', 'david.ramenatte@gmail.com', '', 'c024dad4-d34c-40b4-e11f-6e748694d87f', 1, '2017-03-03 13:05:26', '$2y$10$robHnb7lXxwPBU2Y//0sduqY4EKcXMk6W7A0P4ScVhkQoAlB1B/xm', '', ''),
-(91, 'allioui', 'hatim', 'hatim', 'ha@mail.fr', '', '4a788c56-2b74-4fe9-e52f-8efb75c54a2a', 0, '0000-00-00 00:00:00', '$2y$10$j2QR8hD2SRVkUb/aha003ORXddxo3L/m3fs.18a0F2eZPylDAFqOy', '', ''),
-(92, '', '', '752cc31f-8200-4473-de70-7f7aa6392be9', '752cc31f-8200-4473-de70-7f7aa6392be9', '', '752cc31f-8200-4473-de70-7f7aa6392be9', 1, '0000-00-00 00:00:00', '', '', '');
+(89, 'ramenatte', 'david', 'doudou', 'david.ramenatte@gmail.com', '', 'c024dad4-d34c-40b4-e11f-6e748694d87f', 1, '2017-03-03 13:05:26', '$2y$10$robHnb7lXxwPBU2Y//0sduqY4EKcXMk6W7A0P4ScVhkQoAlB1B/xm', '', '');
 
 -- --------------------------------------------------------
 
@@ -175,6 +173,22 @@ ALTER TABLE `users`
 ALTER TABLE `users_platforms`
   ADD CONSTRAINT `users_platforms_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `users_platforms_ibfk_2` FOREIGN KEY (`idPlatform`) REFERENCES `platforms` (`idPlatform`) ON UPDATE CASCADE;
+
+DELIMITER $$
+--
+-- Événements
+--
+DROP EVENT `delusers`$$
+CREATE DEFINER=`root`@`localhost` EVENT `delusers` ON SCHEDULE EVERY 2 WEEK STARTS '2017-03-03 15:27:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
+DELETE FROM users_platforms 
+WHERE id= (SELECT id FROM users 
+		   WHERE datediff( now(), lastConnexion)>30);
+DELETE FROM users 
+WHERE datediff( now(), lastConnexion)>30;
+
+END$$
+
+DELIMITER ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
