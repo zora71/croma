@@ -99,7 +99,7 @@ class MarbleApi {
      * Redirige  la clé utilisateur a utiliser pour acceder a l'api
      */
     public function connect($callback) {
-        header("Locateion: $callback/token/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+        header("Location: $callback/token/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
     }
 
     /**
