@@ -290,11 +290,13 @@ input:checked + label #Z {
 #modal1 {
 	max-height: inherit;
 	width: 25%;
+	border-radius: 20px;
 }
 
 #modal2 {
     max-height: inherit;
     width: 15%;
+	border-radius: 20px;
 }
 
 
@@ -509,6 +511,8 @@ footer a:hover{
 }
 
 /* MISE EN FORME DE LA CLASS MODAL2 */
+
+
 
 .modal2 {
   display: none;
