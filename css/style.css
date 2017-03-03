@@ -2,28 +2,28 @@
 @font-face {
     font-family: 'kalambold';
     src: url('../fonts/kalam-bold-webfont.woff2') format('woff2'),
-         url('../fonts/kalam-bold-webfont.woff') format('woff');
+        url('../fonts/kalam-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 body {
-	/*height: 10000px;*/
+    /*height: 10000px;*/
 }
 h4{
     font-size: 20px;
 }
 
 .bordure {
-	border: 3px solid red;
+    border: 3px solid red;
 }
 
 .bordure1 {
-	border: 3px solid blue;
+    border: 3px solid blue;
 }
 
 .bordure2 {
-	border: 3px solid green;
+    border: 3px solid green;
 }
 
 /* MISE EN FORME DU LOGO DANS LA NAV BARRE */
@@ -42,13 +42,13 @@ h4{
     -moz-box-shadow: -1px 7px 30px #000000;
     -webkit-box-shadow: -1px 7px 30px #000000;
     box-shadow: -1px 7px 30px #000000;
-    
-    
+
+
 }
 
 #tri-az{
-/*    font-size: 5px;*/
-/*    margin-left: 3px;*/
+    /*    font-size: 5px;*/
+    /*    margin-left: 3px;*/
     color: #000;
     position: relative;
 }
@@ -76,7 +76,7 @@ h4{
     -webkit-animation: cssAnimation 1.3196s 16 ease;
     -moz-animation: cssAnimation 1.3196s 16 ease;
     -o-animation: cssAnimation 1.3196s 16 ease;*/
-    
+
     transform: rotate(0deg) translateY(-15px) rotate(0deg);
     transition: all 1s ease;
 }
@@ -88,7 +88,7 @@ input:checked + label #A {
 #Z{
     transform: rotate(0deg) translateY(15px) rotate(0deg);
     transition: all 1s ease;
-  
+
 }
 
 input:checked + label #Z {
@@ -97,22 +97,22 @@ input:checked + label #Z {
 
 
 /*#arrow1{
-    animation: animateArrow1 5s ease infinite;
-  
+animation: animateArrow1 5s ease infinite;
+
 }*/
 
 /*
 @-webkit-keyframes cssAnimation {
-    from { -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
-    to { -webkit-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+from { -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+to { -webkit-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
 }
 @-moz-keyframes cssAnimation {
-    from { -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
-    to { -moz-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+from { -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+to { -moz-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
 }
 @-o-keyframes cssAnimation {
-    from { -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
-    to { -o-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
+from { -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+to { -o-transform: rotate(176deg) scale(0.791) skew(1deg) translate(0px); }
 }
 */
 @keyframes animateA {
@@ -127,8 +127,8 @@ input:checked + label #Z {
 }
 
 /*@keyframes animateArrow1 {
-    from { transform: rotate(0deg) }
-    to { transform: rotate(-180deg) }
+from { transform: rotate(0deg) }
+to { transform: rotate(-180deg) }
 }*/
 
 /*::::::::::::::*/
@@ -139,21 +139,21 @@ input:checked + label #Z {
 #tri-az div{
     width: 100%;
     height: 100%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 #tri-az p{
     font-size: 15px;
     margin-top: -2px;
-   
+
 }
 /*#tri-az i{
-    width: 10px;
-    height: 10px;
-    padding-left: 9px;
+width: 10px;
+height: 10px;
+padding-left: 9px;
 }*/
 
 #tri-group{
@@ -187,38 +187,38 @@ input:checked + label #Z {
     position: relative;
     top: 8px;
     left: -23px;
-    
-  -webkit-touch-callout: none; /* iOS Safari */
+
+    -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
 
 }
-   
+
 
 #group-label span {
     font-family: 'kalambold';
     position: absolute;
     font-size: 25px;
     transform: scaleX(2);
-	transition: top .5s ease;
+    transition: top .5s ease;
     line-height: 10px;
-  }
+}
 
-  input + label span:nth-child(1){ top: 0}
-  input + label span:nth-child(2){ top: 5px }
-  input + label span:nth-child(3){ top: 10px }
-  input + label span:nth-child(4){ top: 15px }
-  input + label span:nth-child(5){ top: 20px }
+input + label span:nth-child(1){ top: 0}
+input + label span:nth-child(2){ top: 5px }
+input + label span:nth-child(3){ top: 10px }
+input + label span:nth-child(4){ top: 15px }
+input + label span:nth-child(5){ top: 20px }
 
-  input:checked + label span:nth-child(1){ }
-  input:checked + label span:nth-child(2){ top: 10px; }
-  input:checked + label span:nth-child(3){ top: 20px; }
-  input:checked + label span:nth-child(4){ top: 5px; }
-  input:checked + label span:nth-child(5){ top: 15px; }
+input:checked + label span:nth-child(1){ }
+input:checked + label span:nth-child(2){ top: 10px; }
+input:checked + label span:nth-child(3){ top: 20px; }
+input:checked + label span:nth-child(4){ top: 5px; }
+input:checked + label span:nth-child(5){ top: 15px; }
 
 
 .brand-logo {
@@ -226,131 +226,131 @@ input:checked + label #Z {
 }
 
 #logo {
-	height: 50px;
-	width: 75px;
-	background-image: url(../images/VodIn.PNG);
-	background-size: contain;
-	background-repeat: no-repeat;
-	margin-top: 7px;
-	margin-left: 10px;
+    height: 50px;
+    width: 75px;
+    background-image: url(../images/VodIn.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+    margin-left: 10px;
 }
 
 .flex {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex-space {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #nav-mobile>li {
-	margin-right: 10px;
+    margin-right: 10px;
 } 
 
 .btn {
-	text-transform: inherit;
+    text-transform: inherit;
 }
 
 .contain {
-	width: 35%;
-	margin-left: 10%;
+    width: 35%;
+    margin-left: 10%;
 }
 
 #searchBar {
-	border: 2px solid #1b5e20;
-	height: 50%;
-	line-height: inherit;
-	border-radius: 5px;
+    border: 2px solid #1b5e20;
+    height: 50%;
+    line-height: inherit;
+    border-radius: 5px;
 }
 
 #search {
-	padding: inherit;
-	width: 100%;
+    padding: inherit;
+    width: 100%;
 }
 
 #searchChamp {
-	margin-right: 5px;
-	margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 #searchNav {
-	position: fixed;
-	height: 64px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+    position: fixed;
+    height: 64px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* MISE EN FORME DE LA MODAL PREFERENCE */
 
 #modal1 {
-	max-height: inherit;
-	width: 25%;
-	border-radius: 20px;
+    max-height: inherit;
+    width: 25%;
+    border-radius: 20px;
 }
 
 #modal2 {
     max-height: inherit;
     width: 15%;
-	border-radius: 20px;
+    border-radius: 20px;
 }
 
 
 
 #gauche {
-	height: 40px;
-	width: 40px;
-	background-image: url(../images/gauche.PNG);
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-	border: 3px solid #1b5e20;
-	border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    background-image: url(../images/gauche.PNG);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border: 3px solid #1b5e20;
+    border-radius: 3px;
 } 
 
 #droite {
-	height: 40px;
-	width: 40px;
-	background-image: url(../images/droite.PNG);
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-	border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    background-image: url(../images/droite.PNG);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border-radius: 3px;
 } 
 
 #defaut {
-	display: none;
+    display: none;
 }
 
 #droit {
-	display: none;
+    display: none;
 }
 
 /* MISE EN FORME DU BODY */    
 
 #section {
-	
-	height: auto;
-	width: 100%;
-	margin-top: 50px;
+
+    height: auto;
+    width: 100%;
+    margin-top: 50px;
 }
 
 /* MISE EN FORME SIDEBAR */
 
 #sideBar {
-	height: 750px;
-	width: 20%;
+    height: 750px;
+    width: 20%;
     overflow: auto;
     padding: 20px;
-    
+
 }
 
 .platform {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 #platYou{
@@ -381,123 +381,141 @@ input:checked + label #Z {
 .Chaine{
     width: 100%;
     color: #000;
-	overflow: hidden;
-    
+    overflow: hidden;
+
 }
 
 .switch-on {
-	height: 75px;
-	transition: all 1s ease;
+    height: 75px;
+    transition: all 1s ease;
 }
 
 
 
 .switch-off {
-	height: 0;
-	transition: all 1s ease;
+    height: 0;
+    transition: all 1s ease;
 }
 
 .switch-off .col {
-	float: none;
+    float: none;
 }
 
 /* MISE EN FORME DIV VIDEO */
 
 #section2 {
-	width: 80%;
-	margin: 0px 50px;
-	margin-left: inherit;
-	margin-right: inherit;
-	left: inherit;
-	right: inherit;
-	z-index: 1;
-	position: relative;
+    width: 80%;
+    margin: 0px 50px;
+    margin-left: inherit;
+    margin-right: inherit;
+    left: inherit;
+    right: inherit;
+    z-index: 1;
+    position: relative;
 }
 
 #video {
-	width: 100%;
-	height: 750px;
-	overflow-y: auto;
-	overflow-x: hidden;
+    width: 100%;
+    height: 750px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 #section2 > .overlay {
-	position: absolute;
-	top: 0; left: 0;
-	width: 100%;
-	height: 100%;
-/*	background-color: red;*/
-	pointer-events: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    /*	background-color: red;*/
+    pointer-events: none;
 }
 
 #section2 > .overlay:before {
-	background: linear-gradient(to top, transparent, #fff);
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 50px;
-	z-index: 50;
-	pointer-events: none;
+    background: linear-gradient(to top, transparent, #fff);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 50;
+    pointer-events: none;
 }
 
 #section2 > .overlay:after {
-	bottom: 0px;
-	background: linear-gradient(to bottom, transparent, #fff);
-	content: "";
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 50px;
-	z-index: 50;
-	pointer-events: none;
+    bottom: 0px;
+    background: linear-gradient(to bottom, transparent, #fff);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    z-index: 50;
+    pointer-events: none;
 }
 
 .player * {
-	pointer-events: none !important;
+    pointer-events: none !important;
 }
 
 #video .player {
-	padding: 0;
+    padding: 0;
+}
+
+.btn-gauche {
+    width:50px;
+    height:50px;
+    z-index:3000;
+    position:absolute;
+    top:-25px;
+    left:-25px;
+}
+
+.btn-droit {
+    width:50px;
+    height:50px;
+    z-index:3000;
+    position:absolute;
+    top:-25px;
+    right:-25px;
 }
 
 .caption {
-	z-index: 2;
-	margin: inherit;
-	margin-top: -30px;
-	background-color: rgba(0, 0, 0, 0.6);
-	width: 100%;
-	color: white;
+    z-index: 2;
+    margin: inherit;
+    margin-top: -30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    color: white;
 }
 
 img {
-	height: 100%;
-	width: 100%;
-	z-index: 1;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
 .flexDroit {
-	display: flex;
-	flex-direction: row-reverse;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .flexGauche {
-	display: flex;
-	justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .group {
-	margin-top: 10px;
-	display: flex;
-	justify-content: space-around;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .col.l3 {
-	margin-left: inherit !important;
+    margin-left: inherit !important;
 }
 
 .row {
-	margin-left: inherit !important;
+    margin-left: inherit !important;
 }
 
 footer {
@@ -506,8 +524,8 @@ footer {
 }
 
 footer a:hover{
-    
-    
+
+
 }
 
 /* MISE EN FORME DE LA CLASS MODAL2 */
@@ -515,92 +533,92 @@ footer a:hover{
 
 
 .modal2 {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: #fafafa;
-  padding: 0;
-  max-height: 70%;
-  width: 55%;
-  margin: auto;
-  overflow-y: auto;
-  border-radius: 2px;
-  will-change: top, opacity;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    max-height: 70%;
+    width: 55%;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity;
 }
 
 @media only screen and (max-width: 992px) {
-  .modal2 {
-    width: 80%;
-  }
+    .modal2 {
+        width: 80%;
+    }
 }
 
 .modal2 h1, .modal2 h2, .modal2 h3, .modal2 h4 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .modal2 .modal-content {
-  padding: 24px;
+    padding: 24px;
 }
 
 .modal2 .modal2-close {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .modal2 .modal2-footer {
-  border-radius: 0 0 2px 2px;
-  background-color: #fafafa;
-  padding: 4px 6px;
-  height: 56px;
-  width: 100%;
+    border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 4px 6px;
+    height: 56px;
+    width: 100%;
 }
 
 .modal2 .modal2-footer .btn, .modal2 .modal2-footer .btn-large, .modal2 .modal2-footer .btn-flat {
-  float: right;
-  margin: 6px 0;
+    float: right;
+    margin: 6px 0;
 }
 
 .modal2-overlay {
-  position: fixed;
-  z-index: 999;
-  top: -100px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 125%;
-  width: 100%;
-  background: #000;
-  display: none;
-  will-change: opacity;
+    position: fixed;
+    z-index: 999;
+    top: -100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background: #000;
+    display: none;
+    will-change: opacity;
 }
 
 .modal2.modal2-fixed-footer {
-  padding: 0;
-  height: 70%;
+    padding: 0;
+    height: 70%;
 }
 
 .modal2.modal2-fixed-footer .modal2-content {
-  position: absolute;
-  height: calc(100% - 56px);
-  max-height: 100%;
-  width: 100%;
-  overflow-y: auto;
+    position: absolute;
+    height: calc(100% - 56px);
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .modal2.modal2-fixed-footer .modal2-footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  position: absolute;
-  bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
 }
 
 .modal2.bottom-sheet {
-  top: auto;
-  bottom: -100%;
-  margin: 0;
-  width: 100%;
-  max-height: 45%;
-  border-radius: 0;
-  will-change: bottom, opacity;
+    top: auto;
+    bottom: -100%;
+    margin: 0;
+    width: 100%;
+    max-height: 45%;
+    border-radius: 0;
+    will-change: bottom, opacity;
 }
 
 #inscription {
