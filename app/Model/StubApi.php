@@ -4,7 +4,7 @@ namespace Model;
 
 use \Utils\Http\Curl;
 
-class Stub {
+class StubApi {
     const CROMAPI_DEFAULT_LIMIT = 10;
 
     private $key;
@@ -36,10 +36,16 @@ class Stub {
         $_STUB_API = &$_SESSION['STUB_API'];
         if (isset($_STUB_API['__stub__current__route'])) {
             $route = $_STUB_API['__stub__current__route'];
-            $routeOptions = [ 'tail' => '/page/'.$this->page];
+            $routeOptions = [ 'tail' => 'page/'.$this->page];
             
-        	$search = $_STUB_API['__stub__current__search'];
-        	$routeOptions['search'] = $search;
+            if (isset($_STUB_API['__stub__current__search'])) {
+                $search = $_STUB_API['__stub__current__search'];
+                $routeOptions['search'] = $search;
+                $routeOptions[ 'tail' ] .= '/search/'.$search;
+            } else {
+                $search = '__stub__api__search';
+                if (!isset($_STUB_API['__stub__api__search'])) $STUB_API['__stub__api__search'] = [];
+            }
 
             $data = Curl::get($this->url($route, $routeOptions));
 
@@ -48,21 +54,20 @@ class Stub {
             foreach ($videosData as $videoData) {
                 if (isset($videos[$search][$videoData['uuid']])) continue;
                 
-                $video = new Video();
-                $video->setUuid($videoData['uuid']);
-                $video->setTitle($videoData['title']);
-                $video->setDescription($videoData['description']);
-                $video->setDuration($videoData['duration']);
-                $video->setUploadedTime($videoData['uploadedTime']);
-                $video->setPlatform('Stub');
-                $video->setUrl($videoData['url']);
-                $video->setThumbnail($videoData['thumbnail']);
+                $video = new Video($videoData['uuid'],
+                                   $videoData['title'],
+                                   $videoData['description'],
+                                   $videoData['duration'],
+                                   $videoData['uploadedTime'],
+                                   $videoData['thumbnail'],
+                                   $videoData['url'],
+                                   'Stub');
 
                 $videos[$videoData['uuid']] = $video;
             }
 
             $startIndex = ($this->page - 1) * $this->limit;
-            return array_slice(array_values($videos[$search]), $startIndex, $this->limit);
+            return array_slice(array_values($videos), $startIndex, $this->limit);
         }
 
         return null;
@@ -84,18 +89,15 @@ class Stub {
     }
 
     public function getUserChannels($userId) {
-        $data = Curl::get($this->url('stub_user_channels', [ 'id' => $userId ]));
+        $data = Curl::get($this->url('stub_user_channels', [ 'uuid' => $userId ]));
         $channelsData = json_decode($data, true);
-        var_dump($channelsData); die();
 
         $channels = &$_STUB_API['channels'];
         foreach ($channelsData as $channelData) {
-            $channel = new Channel();
-            $channel->setUuid($channelData['uuid']);
-            $channel->setTitle($channelData['label']);
-            $channel->setAvatar($channelData['avatar']);
-            $channel->setPlatform('Stub');
-            
+            $channel = new Channel($channelData['uuid'],
+                                   $channelData['label'],
+                                   $channelData['avatar'],
+                                   'Stub');
             $channels[$channelData['uuid']] = $channel;
         }
 
@@ -104,31 +106,34 @@ class Stub {
 
     public function getChannelVideos($channelId) {
         $_STUB_API = &$_SESSION['STUB_API'];
-        $data = Curl::get($this->url('stub_channel_videos', [ 'id' => $channelId ]));
-
+        $data = Curl::get($this->url('stub_channel_videos', [ 'uuid' => $channelId ]));
         $channel = &$_STUB_API['channels'][$channelId];
-        $videosData = json_decode($data, true);
-        foreach ($videosData as $videoData) {
-            $video = new Video();
-            $video->setUuid($videoData['uuid']);
-            $video->setTitle($videoData['title']);
-            $video->setDescription($videoData['description']);
-            $video->setDuration($videoData['duration']);
-            $video->setUploadedTime($videoData['uploadedTime']);
-            $video->setPlatform('Stub');
-            $video->setUrl($videoData['url']);
-            $video->setThumbnail($videoData['thumbnail']);
-            
-            $channel->addVideo($video);
-        }
 
-        return $channel->getVideos();
+        if ($channel) {
+	        $videosData = json_decode($data, true);
+	        foreach ($videosData as $videoData) {
+	            $video = new Video($videoData['uuid'],
+	            	               $videoData['title'],
+	                               $videoData['description'],
+	                               $videoData['duration'],
+	                               $videoData['thumbnail'],
+	                               $videoData['url'],
+	                               $videoData['uploadedTime'],
+	                               'Stub');
+
+	            $channel->addVideo($video);
+	        }
+
+	        return $channel->getVideos();
+
+        }
     }
 
     public function searchVideos($search = null) {
         $_STUB_API = &$_SESSION['STUB_API'];
         $route = $_STUB_API['__stub__current__route'] = 'stub_videos';
-        $_STUB_API['__stub__current__search'] = $search ? $search : '__stub__api__search';
+        if ($search) $_STUB_API['__stub__current__search'] = $search;
+        else unset($_STUB_API['__stub__current__search']);
         return $this->pageContent();
     }
 

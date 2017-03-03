@@ -22,8 +22,8 @@
 	['GET', '/hash', 'Stub#hash', 'stub_hash'],
 
         ['GET', '/test/key',                                                    'Test#userKey', 'test_key'],
-        ['GET', '/test/channels/[i:id]',                                        'Test#userChannels', 'test_channels'],
-        ['GET', '/test/videos/[i:id]',                                          'Test#channelVideo', 'test_channels_videos'],
+        ['GET', '/test/channels/[:id]',                                         'Test#userChannels', 'test_channels'],
+        ['GET', '/test/videos/[:id]',                                           'Test#channelVideos', 'test_channels_videos'],
         ['GET', '/test/videos',                                                 'Test#videos', 'test_videos'],
         ['GET', '/test/search/[:search]',                                       'Test#searchVideos', 'test_search'],
 

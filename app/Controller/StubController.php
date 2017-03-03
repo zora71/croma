@@ -41,13 +41,12 @@ class StubController extends Controller {
         $algos = hash_algos();
         for ($i = 0; $i < 3; $i++) {
             foreach ($algos as $algo) {
-                $hash1 = hash($algo, 'a');
-                $hash2 = hash($algo, 'a');
+                $hash = hash($algo, 'a');
                 $begin = microtime(true);
                 for ($j = 0; $j < 10000; $j++)
                     hash($algo, 'a');
                 $time = microtime(true) - $begin;
-                echo "$algo produce ".($hash1 == $hash2 ? 'same' : 'different')." hash in $time seconds<br>";
+                echo "$algo produce $hash in $time seconds<br>";
             }
         }
     }
@@ -136,13 +135,16 @@ class StubController extends Controller {
     public function userChannels($userId) {
         $_STUB = &$_SESSION['STUB'];
         if (!isset($_STUB[$userId])) $_STUB[$userId] = [];
-        $channels = &$_STUB[$userId];
 
-        $rand = mt_rand(5, 15);
-        for ($i = 0; $i < $rand; $i++) {
-            $channel = $this->getRandomChannel();
-            $_STUB[$channel['uuid']] = &$channel;
-            $channels[] = &$channel;
+        $channels = &$_STUB[$userId];
+        if (empty($channels)) {
+            $rand = mt_rand(5, 15);
+            for ($i = 0; $i < $rand; $i++) {
+                $channel = $this->getRandomChannel();
+                $_STUB[$channel['uuid']] = &$channel;
+                $channels[] = &$channel;
+                unset($channel);
+            }
         }
 
         return $this->showJson($channels);
@@ -155,11 +157,13 @@ class StubController extends Controller {
     public function channelVideos($channelId) {
         $_STUB = &$_SESSION['STUB'];
         if (!isset($_STUB[$channelId])) $_STUB[$channelId] = [];
-        $videos = &$_STUB['videos'];
 
-        $rand = mt_rand(5, 35);
-        for ($i = 0; $i < $rand; $i++) {
-            $videos[] = $this->getRandomVideo();
+        $videos = &$_STUB[$channelId];
+        if (empty($videos)) {
+            $rand = mt_rand(5, 35);
+            for ($i = 0; $i < $rand; $i++) {
+                $videos[] = $this->getRandomVideo();
+            }
         }
 
         return $this->showJson($videos);
