@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="icons/ionicons.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" type="image/png" href="images/logoVodIn.PNG" />
+        <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     </head>
 
     <body>
@@ -45,34 +46,34 @@
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
-                <div id="platYou" class="platform switch-on youtube">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoYoutube.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Youtube</h4>
-                        </div>
+
+                <div id="platYou" class="platform switch-on youtube rounded">
+
+                    <div id="img-you" class="flex">
+                        <img src="images/logoYoutube.jpg" class="rounded">
+
+
+
+                        <span>Youtube</span>
+
                     </div>
                 </div>
-                <div id="platTw" class="platform switch-on twitch">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoTwitch.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Twitch</h4>
-                        </div>
+                <div id="platTw" class="platform switch-on twitch rounded">
+
+                    <div id="img-tw" class="flex">
+                        <img src="images/logoTwitch.jpg" class="rounded">
+
+
+                        <span>Twitch</span>
                     </div>
                 </div>
-                <div id="platDM" class="platform switch-on dailymotion">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoMotion.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h4>Daily motion</h4>
-                        </div>
+                <div id="platDM" class="platform switch-on dailymotion rounded">
+
+                    <div id="img-dm" class="flex" >
+                        <img src="images/logoMotion.jpg" class="rounded">
+
+
+                        <span>Daily motion</span>
                     </div>
                 </div>
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -80,121 +81,161 @@
                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
-                <div id="tri-chaine">
-                    <div class="row"><!--début-row-tri-->
-                        <div class="col s4">
-                            <div id="tri-group" class="btn-floating">
+                <div id="tri-chaine" class="switch-on flex">
+                    <!--<div id="titre-tri"><span>Trier votre contenu</span></div>-->
+                    <div id="tri-group" class="btn-tri rounded waves-effect waves-light green darken-4">
+                        <input id="group" type="checkbox" style="display:none">
+                        <label id="group-label" for="group">
+                            <span class="yt">-</span>
+                            <span class="dm">-</span>
+                            <span class="tw">-</span>
+                            <span class="yt">-</span>
+                            <span class="dm">-</span>
+                        </label>
 
 
-                                <input id="group" type="checkbox" style="display:none">
-                                <label id="group-label" for="group">
-                                    <span class="yt">-</span>
-                                    <span class="dm">-</span>
-                                    <span class="tw">-</span>
-                                    <span class="yt">-</span>
-                                    <span class="dm">-</span>
-                                </label>
+                    </div>   
 
+
+                    <div id="tri-az" class="btn-tri rounded waves-effect waves-light green darken-4">
+                        <input id="az-sort" type="checkbox" style="display:none">
+                        <label id="az-sort-label" for="az-sort">
+                            <div id="A"> A </div>
+                            <div id="arrow1" class="ion-arrow-down-c"> </div>
+                            <div id="Z"> Z </div>
+
+                        </label>
+
+
+
+                    </div>
+
+
+
+                    <div id="tri-date" class="btn-tri rounded waves-effect waves-light green darken-4">
+                        <input id="date-sort" type="checkbox" style="display:none">
+                        <label id="date-sort-label" for="date-sort">
+                            <div id="A">Date</div>
+                            <div id="arrow1" class="ion-arrow-down-c"> </div>
+
+
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <!--<div id="abonne" class="bordure chaine">-->
+                <div class="abonnement borderyt">
+                    <div class="switch-on">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine1.jpg" class="rounded responsive-img">
+
+                            <div class="micro-logo">
+                                <img src="images/logoYoutube.jpg" class="img-responsive rounded">
                             </div>
+
+
                         </div>
-
-                        <div class="col s4">
-                            <div id="tri-az">
-                                <input id="az-sort" type="checkbox" style="display:none">
-                                <label id="az-sort-label" for="az-sort">
-                                    <div id="A"> A </div>
-                                    <div id="arrow1" class="ion-arrow-down-c"> </div>
-                                    <div id="Z"> Z </div>
-
-                                </label>
+                        <span class="titre-chaine">PlayerG</span>
 
 
+                    </div> 
+                </div>
 
+                <div class="abonnement">
+                    <div class="switch-on">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine3.jpg" class="rounded responsive-img">
+
+                            <div class="micro-logo">
+                                <img src="images/logoMotion.jpg" class="img-responsive rounded">
                             </div>
+
+
                         </div>
-
-                        <div class="col s4">
-                            <div id="tri-date">
-                                <input id="date-sort" type="checkbox" style="display:none">
-                                <label id="date-sort-label" for="date-sort">
-                                    <div id="A">Date</div>
-                                    <div id="arrow1" class="ion-arrow-down-c"> </div>
+                        <span class="titre-chaine">Daily Emotions</span>
 
 
-                                </label>
+                    </div> 
+                </div>
 
 
+                <div class="abonnement">
+                    <div class="switch-on rounded">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine2.jpg" class="borderyt rounded responsive-img">
 
+                            <div class="micro-logo">
+                                <img src="images/logoYoutube.jpg" class="img-responsive rounded">
                             </div>
+
+
                         </div>
-                    </div><!--fin row tri-->
+                        <span class="titre-chaine">Dunod</span>
+
+
+                    </div> 
                 </div>
 
-                <div class="Chaine youtube switch-on">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logochaine1.jpg">
+                <div class="abonnement bordertw">
+                    <div class="switch-on">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine4.jpg" class="rounded responsive-img">
+
+                            <div class="micro-logo">
+                                <img src="images/logoTwitch.jpg" class="img-responsive rounded">
+                            </div>
+
+
                         </div>
-                        <div class="col s10">
-                            <h6>PlayerG</h6>
-                        </div>
-                    </div>
+                        <span class="titre-chaine">François le français</span>
+
+
+                    </div> 
                 </div>
 
-                <div class="Chaine">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoChaine2.jpg">
+                <div class="abonnement">
+                    <div class="switch-on">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine5.jpg" class="circle borderyt  responsive-img">
+
+                            <div class="micro-logo">
+                                <img src="images/logoMotion.jpg" class="img-responsive circle">
+                            </div>
+
+
                         </div>
-                        <div class="col s10">
-                            <h6>Dunod</h6>
-                        </div>
-                    </div>
+                        <span class="titre-chaine">Bonheur au quotidien</span>
+
+
+                    </div> 
                 </div>
 
-                <div class="Chaine">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoChaine3.jpg">
+                <div class="abonnement">
+                    <div class="switch-on">
+                        <div class="logo-chaine">
+                            <img src="images/logochaine6.jpg" class="circle responsive-img">
+
+                            <div class="micro-logo">
+                                <img src="images/logoTwitch.jpg" class="img-responsive circle">
+                            </div>
+
+
                         </div>
-                        <div class="col s10">
-                            <h6>Daily Emotions</h6>
-                        </div>
-                    </div>
+                        <span class="titre-chaine">Geek inside</span>
+
+
+                    </div> 
                 </div>
 
-                <div class="Chaine">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoChaine4.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h6>François le français</h6>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="Chaine">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoChaine5.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h6>Bonheur au quotidien</h6>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="Chaine">
-                    <div class="row">
-                        <div class="col s2">
-                            <img src="images/logoChaine6.jpg">
-                        </div>
-                        <div class="col s10">
-                            <h6>Geek inside</h6>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
+                <!--</div>-->
             </div>
 
 
