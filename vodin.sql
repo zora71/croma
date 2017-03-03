@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -19,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `vodin`
 --
-CREATE DATABASE IF NOT EXISTS `vodin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+DROP DATABASE IF EXISTS `vodin`;
+CREATE DATABASE `vodin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `vodin`;
 
 -- --------------------------------------------------------
@@ -28,7 +30,7 @@ USE `vodin`;
 -- Structure de la table `platforms`
 --
 
-DROP TABLE IF EXISTS `platforms`;
+
 CREATE TABLE `platforms` (
   `idPlatform` int(11) NOT NULL,
   `label` varchar(50) NOT NULL,
@@ -51,7 +53,7 @@ INSERT INTO `platforms` (`idPlatform`, `label`, `url`, `actif`) VALUES
 -- Structure de la table `styles`
 --
 
-DROP TABLE IF EXISTS `styles`;
+
 CREATE TABLE `styles` (
   `idStyle` int(11) NOT NULL,
   `fileName` varchar(100) NOT NULL
@@ -75,7 +77,7 @@ INSERT INTO `styles` (`idStyle`, `fileName`) VALUES
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `lastname` varchar(100) NOT NULL,
@@ -109,7 +111,7 @@ INSERT INTO `users` (`id`, `lastname`, `firstname`, `pseudo`, `email`, `createDa
 -- Structure de la table `users_platforms`
 --
 
-DROP TABLE IF EXISTS `users_platforms`;
+
 CREATE TABLE `users_platforms` (
   `id` int(11) NOT NULL,
   `idPlatform` int(11) NOT NULL,
@@ -182,14 +184,13 @@ DELIMITER $$
 -- Événements
 --
 DROP EVENT `delusers`$$
-CREATE DEFINER=`root`@`localhost` EVENT `delusers` ON SCHEDULE EVERY 2 WEEK STARTS '2017-03-06 09:39:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
-DELETE FROM users_platforms 
-WHERE id= (SELECT id FROM users 
-		   WHERE datediff( now(), lastConnexion)>30 
-           and emailValid = 0);
-DELETE FROM users 
-WHERE datediff( now(), lastConnexion)>30 
-and emailValid = 0;
+CREATE DEFINER=`root`@`localhost` EVENT `delusers` ON SCHEDULE EVERY 2 WEEK STARTS '2017-03-03 15:27:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
+DELETE FROM users_platforms
+WHERE id= (SELECT id FROM users
+		   WHERE datediff( now(), lastConnexion)>30);
+DELETE FROM users
+WHERE datediff( now(), lastConnexion)>30;
+
 END$$
 
 DELIMITER ;
