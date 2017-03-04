@@ -8,6 +8,10 @@ use \W\Security\AuthentificationModel;
 use \Model\Mailer;
 
 
+use \Model\DailymotionApi;
+use \Model\Channel;
+use \Model\Video;
+
 class DefaultController extends Controller{
 
 	protected $uuid;
@@ -25,6 +29,39 @@ class DefaultController extends Controller{
 //		$mail = new Mailer;
 //		print_r($mail->send('zora.amar71@gmail.com', 'test', 'test'));
 //	}
+
+	public function dmauth() {
+		$dm = new DailymotionApi();
+		$dm->connect();
+	}
+
+	public function dmchannels() {
+		$dm = new DailymotionApi();
+		$channels = $dm->getChannels();
+		foreach ($channels as $key => $channel) {
+			echo '<a href="'.$this->generateUrl('dmvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a>';
+		}
+
+	}
+
+	public function dmvideos($id) {
+		$dm = new DailymotionApi();
+		$videos = $dm->getChannelVideos($id);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'"><br>';
+		}
+	}
+
+	public function dmsearch($search = null) {
+		$dm = new DailymotionApi();
+		$videos = $dm->search($search);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
+		}
+		else echo 'no results';
+	}
 
 	// fonction generer uuid
 	private function gen_uuid() {
