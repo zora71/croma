@@ -27,8 +27,8 @@ $w_config = [
     //api keys
     'dailymotion_api_key' => '',
     'dailymotion_api_secret' => '',
-    'youtube_api_key' => '',
-    'youtube_api_secret' => '',
+    'youtube_api_key' => '857685741489-90clnepl9etsuvv06pao3v2i84qb904k.apps.googleusercontent.com',
+    'youtube_api_secret' => 'vlZUbCJ5-yL-RY8BY1x0c0Sk',
     'twitch_api_key' => '',
     'twitch_api_secret' => '',
 
