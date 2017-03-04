@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f898bb2924da5506832c3a2077a080e",
+    "content-hash": "7e93e0927c3059381f5c93fd6e8614a1",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -60,6 +60,39 @@
                 "routing"
             ],
             "time": "2015-11-30T00:47:43+00:00"
+        },
+        {
+            "name": "dailymotion/sdk",
+            "version": "1.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dailymotion/dailymotion-sdk-php.git",
+                "reference": "0f558978785f9a6ab9e59c393041d4896550973b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dailymotion/dailymotion-sdk-php/zipball/0f558978785f9a6ab9e59c393041d4896550973b",
+                "reference": "0f558978785f9a6ab9e59c393041d4896550973b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Dailymotion.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dailymotion PHP SDK",
+            "homepage": "http://dailymotion.com",
+            "keywords": [
+                "api",
+                "dailymotion",
+                "sdk"
+            ],
+            "time": "2015-11-20T11:18:32+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
