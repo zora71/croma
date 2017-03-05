@@ -29,8 +29,8 @@ $w_config = [
     'dailymotion_api_secret' => '',
     'youtube_api_key' => '',
     'youtube_api_secret' => '',
-    'twitch_api_key' => '',
-    'twitch_api_secret' => '',
+    'twitch_api_key' => 'dqrbymic5kg35ntkp1hgxde8a6b4nu',
+    'twitch_api_secret' => 'tahda7yec3qou6rbhizf2c5yl7wfqs',
 
 	// configuration globale
 	'site_name'	=> '', 								// contiendra le nom du site
