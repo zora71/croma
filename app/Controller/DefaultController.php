@@ -8,6 +8,10 @@ use \W\Security\AuthentificationModel;
 use \Model\Mailer;
 
 
+use \Model\YoutubeApi;
+use \Model\Channel;
+use \Model\Video;
+
 class DefaultController extends Controller{
 
 	protected $uuid;
@@ -25,6 +29,39 @@ class DefaultController extends Controller{
 //		$mail = new Mailer;
 //		print_r($mail->send('zora.amar71@gmail.com', 'test', 'test'));
 //	}
+
+	public function ytauth() {
+		$yt = new YoutubeApi();
+		$yt->connect();
+	}
+
+	public function ytchannels() {
+		$yt = new YoutubeApi();
+		$channels = $yt->getChannels();
+		foreach ($channels as $key => $channel) {
+			echo '<a href="'.$this->generateUrl('ytvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a><br>';
+		}
+
+	}
+
+	public function ytvideos($id) {
+		$yt = new YoutubeApi();
+		$videos = $yt->getChannelVideos($id);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'"><br>';
+		}
+	}
+
+	public function ytsearch($search = null) {
+		$yt = new YoutubeApi();
+		$videos = $yt->search($search);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
+		}
+		else echo 'no results';
+	}
 
 	// fonction generer uuid
 	private function gen_uuid() {
