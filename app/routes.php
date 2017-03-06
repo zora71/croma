@@ -10,6 +10,12 @@
                 ['GET', '/dmsearch/[:search]', 'Default#dmsearch', 'dmsearch'],
                 ['GET', '/dmsearch', 'Default#dmsearch', 'dmsearch_random'],
 
+                ['GET', '/ytauth', 'Default#ytauth', 'ytauth'],
+                ['GET', '/ytchannels', 'Default#ytchannels', 'ytchannels'],
+                ['GET', '/ytvideos/[:id]', 'Default#ytvideos', 'ytvideos'],
+                ['GET', '/ytsearch/[:search]', 'Default#ytsearch', 'ytsearch'],
+                ['GET', '/ytsearch', 'Default#ytsearch', 'ytsearch_random'],
+
         // Gestion utilisateurs
         //---------------------
         // inscription

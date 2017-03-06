@@ -9,6 +9,7 @@ use \Model\Mailer;
 
 
 use \Model\DailymotionApi;
+use \Model\YoutubeApi;
 use \Model\Channel;
 use \Model\Video;
 
@@ -30,6 +31,9 @@ class DefaultController extends Controller{
 //		print_r($mail->send('zora.amar71@gmail.com', 'test', 'test'));
 //	}
 
+        /***************/
+        /* Dailymotion */
+        /***************/
 	public function dmauth() {
 		$dm = new DailymotionApi();
 		$dm->connect();
@@ -56,6 +60,42 @@ class DefaultController extends Controller{
 	public function dmsearch($search = null) {
 		$dm = new DailymotionApi();
 		$videos = $dm->search($search);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
+		}
+		else echo 'no results';
+	}
+
+        /***************/
+        /*   Youtube   */
+        /***************/
+	public function ytauth() {
+		$yt = new YoutubeApi();
+		$yt->connect();
+	}
+
+	public function ytchannels() {
+		$yt = new YoutubeApi();
+		$channels = $yt->getChannels();
+		foreach ($channels as $key => $channel) {
+			echo '<a href="'.$this->generateUrl('ytvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a><br>';
+		}
+
+	}
+
+	public function ytvideos($id) {
+		$yt = new YoutubeApi();
+		$videos = $yt->getChannelVideos($id);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'"><br>';
+		}
+	}
+
+	public function ytsearch($search = null) {
+		$yt = new YoutubeApi();
+		$videos = $yt->search($search);
 		if ($videos)
 		foreach ($videos as $key => $video) {
 			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
@@ -102,14 +142,14 @@ class DefaultController extends Controller{
 
     // page d'accueil (index)
 	public function index() {
-		
+
 		// var_dump($_COOKIE);
 		// var_dump($_SESSION);
-		
+
 		$invalidUuid = false;
 
 		// vérif existence cookie
-		if (Cookie::has('uuid')) { 
+		if (Cookie::has('uuid')) {
 			//... cookie existant, on le récupère
 			$uuid = Cookie::get('uuid');
 
@@ -118,7 +158,7 @@ class DefaultController extends Controller{
 				//... Uuid existante, on le récupère
 				$_SESSION['uuid'] = $user['uuid'];
 				if (!$user['emailValid']) $this->auth->logUserIn($user);
-				
+
 			}else{
 				//... Uuid NON existant (expirée) en BDD... générer Uuid en BDD
 				$invalidUuid = true;
@@ -154,16 +194,16 @@ class DefaultController extends Controller{
 			// hashage du mot de passe
 			$_POST['password'] = $this->auth->hashPassword($_POST['password']);
 			if ($user = $this->currentUser->findByUuid($_SESSION['uuid'])) {
-				$_POST['lastConnexion']= date('Y-m-d H:i:s'); 
-				$_POST['createDate']= date('Y-m-d H:i:s'); 
+				$_POST['lastConnexion']= date('Y-m-d H:i:s');
+				$_POST['createDate']= date('Y-m-d H:i:s');
 				$_POST['emailToken']= md5($user['email'].date('Ymd')); // email + date jour codée en MD5
 				// Envoi mail pour confirmation d'inscription
-				// chargement adresse HOST 
+				// chargement adresse HOST
 				$link = "http://".$_SERVER['SERVER_NAME']."/croma/public/emailValid/?token=".$_POST['emailToken'];
 
 				// envoyer le "token" par mail au client
 				$to = $_POST['email']; // destinataire
-				$subject = utf8_decode('vodin -  Confirmation inscription');	// sujet du mail 
+				$subject = utf8_decode('vodin -  Confirmation inscription');	// sujet du mail
 				$body = '<h1>Bonjour</h1>
 						<p>Confirmez votre adresse mail afin de validez votre inscription.</p>
 						<a href="'.$link.'">Validation inscription</a>
@@ -188,7 +228,7 @@ class DefaultController extends Controller{
 	public function connexion() {
 
 		$app = getApp(); // récup. variable globale instance de l'application (getApp ds W\view\globals.php)
-        
+
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -197,19 +237,19 @@ class DefaultController extends Controller{
 			if ($user) {
 				//... pseudo ou email existant, on le récupère
 				$currentUser = $this->currentUser->find($user);
-				
+
 				$this->auth->logUserIn($currentUser); // récup. info utilisateur pr stockage $_SESSION
 				Cookie::set('uuid', $currentUser['uuid']);
-                
+
                 // ajout date dernière connexion, et date de creation sur Uuid
 
 				$this->currentUser->update(array('lastConnexion'=>date('Y-m-d H:i:s')), $currentUser['id']) ;
-				
+
 
                 // suppression Uuid (en BDD) généré automatiquement à l'accès
                 $oldUuid = $_SESSION['uuid'];
 				$oldUser = $this->currentUser->deleteByUuid($oldUuid);
-                
+
                 // redirection sur page d'accueil (index)
 				$_SESSION['uuid'] = $currentUser['uuid'];
 				$this->redirectToRoute('default_index');
@@ -242,19 +282,19 @@ class DefaultController extends Controller{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Récupère un utilisateur en fonction de son email ou de son pseudo
 			$user = $this->currentUser->getUserByUsernameOrEmail($_POST['usernameOrEmail']);
-			
+
 			// si utilisateur trouvé, on exécute la suite...
 			if ($user <> false) {
 
 				// générer un "token"
 				$pwdToken = md5($user['email'].date('Ymd')); // email + date jour codée en MD5
 
-				// chargement adresse HOST 
+				// chargement adresse HOST
 				$link = "http://".$_SERVER['SERVER_NAME']."/croma/public/pwdNew/?token=".$pwdToken;
 
 				// envoyer le "token" par mail au client
 				$to = $user['email']; // destinataire
-				$subject = utf8_decode('vodin -  Récupération mot de passe');	// sujet du mail 
+				$subject = utf8_decode('vodin -  Récupération mot de passe');	// sujet du mail
 				$body = '<h1>Bonjour</h1>
 						<p>Vous avez signalé votre mot de passe comme oublié.
 						Veuillez cliquer sur le lien suivant pour le réinitialiser.</p>
@@ -275,10 +315,10 @@ class DefaultController extends Controller{
 				// si erreur, on refait une saisie de email
 				$this->redirectToRoute('default_pwdLost');
 			}
-		} 
+		}
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-						
+
 			// formulaire saisie mot de passe perdu A FAIRE
 			?>
 			<h1>mot de passe perdu</h1>
@@ -301,17 +341,17 @@ class DefaultController extends Controller{
 					</div>
 					<!-- /.panel-body -->
 				</div>
-			<?php 
+			<?php
 			// fin de formulaire
 		}
 	}
-	
+
 	//Fonction pwdNew() modification du mot de passe
 	public function pwdNew(){
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			$token = htmlentities(strip_tags($_GET['token']));
-			
+
 			// formulaire saisie nouveau mot de passe A FAIRE
 			?>
 			<h1>nouveau mot passe </h1>
@@ -335,10 +375,10 @@ class DefaultController extends Controller{
 				</div>
 				<!-- /.panel-body -->
 			</div>
-			<?php 
-			// fin de formualaire			
+			<?php
+			// fin de formualaire
 		}
-		
+
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Récupère un utilisateur en fonction de son email ou de son pseudo
@@ -358,13 +398,13 @@ class DefaultController extends Controller{
 			}
 		}
 	}
-	
+
 	//Fonction emailValid() confirmation email
 	public function emailValid(){
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			$token = htmlentities(strip_tags($_GET['token']));
-			
+
 			// formulaire de confirmation email A FAIRE
 			?>
 			<h1>Confirmez email </h1>
@@ -384,10 +424,10 @@ class DefaultController extends Controller{
 				</div>
 				<!-- /.panel-body -->
 			</div>
-			<?php 
-			// fin de formualaire			
+			<?php
+			// fin de formualaire
 		}
-		
+
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Récupère un utilisateur en fonction de son email ou de son pseudo
@@ -405,13 +445,13 @@ class DefaultController extends Controller{
 			}
 		}
 	}
-	
+
 	public function settings(){
 		$user = $this->currentUser->find($_SESSION['user']['id']);
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-			$settings = unserialize($user['settings']); 
-			// 
+			$settings = unserialize($user['settings']);
+			//
 			//
 			//
 			//
@@ -448,10 +488,10 @@ class DefaultController extends Controller{
 				</div>
 				<!-- /.panel-body -->
 			</div>
-			<?php 
-			// fin de formualaire			
+			<?php
+			// fin de formualaire
 		}
-		
+
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			var_dump ($_POST);
@@ -469,11 +509,11 @@ class DefaultController extends Controller{
 				$this->redirectToRoute('default_emailValid');   //// vérifier la route si problème ???????
 			}
 		}
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 }
 ?>

@@ -31,7 +31,8 @@
         "ircmaxell/password-compat": "^1.0",
         "league/url": "^3.3",
         "phpmailer/phpmailer": "^5.2",
-        "dailymotion/sdk": "^1.6"
+        "dailymotion/sdk": "^1.6",
+        "google/apiclient": "^2.1"
     },
     "autoload": {
         "psr-4": {
