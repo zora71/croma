@@ -12,9 +12,9 @@ $(document).ready(function() {
 		outDuration: 200, // Transition hors duration
 		startingTop: '4%', // depart du top style attribute
 		endingTop: '10%', // fin du top style attribute
-		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la modal sont valable ?
+		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
 		},
-		complete: function() {} // Appel de Modal close
+		complete: function() { alert("Paramètre enregistré"); } // Appel de Modal close
 	});
     
     $('.modal2').modal({
@@ -26,35 +26,8 @@ $(document).ready(function() {
 		endingTop: '10%', // fin du top style attribute
 		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
 		},
-		complete: function() {} // Appel de Modal close
+		complete: function() { alert("Bonjour xXMuggenXx"); } // Appel de Modal close
 	});
-    
-    var inscription = $('#inscription');
-    var modal2 = $('#modal2-content');
-    var modal3 = $('#modal3');
-    
-    inscription.click(function(){
-        modal2.css({
-            transform: 'scaleX(0)',
-            transition: 'all 1s ease'
-        }).hide({delay: 2000});
-        $('#modal2').css({
-            width: '25%'
-        });
-        modal3.show({delay:2500});
-            modal3.css({
-                transform: 'scaleX(1)',
-                transition: 'all 1s ease'
-        });
-        
-    });
-    
-    $('#fermer').click(function(){
-        modal2.show().css('transform', 'scaleX(1)');
-        modal3.hide().css('transform', 'scaleX(0)');
-        $('#modal2').css('width', '');
-       
-    });
 
 	var section = $('#section');
 	var droite = $('#droite');
@@ -146,113 +119,8 @@ $('.mini + div').hide();
 			.css('-o-transition', 'top .7s ease, left .7s ease, width .7s ease, height .7s ease, opacity .1s .7s ease, z-index .0s .8s ease').attr('src', '');
         
 	})
-    
-    //////////////////////////////////////////////////////////////////////
-    ///////////////////animation bouttons tri/////////////////////////////
-    //////////////////////////////////////////////////////////////////////
-    
-$('#tri-group').click(function(){
-    console.log($(this).find('input').is(':checked'));
-    if($(this).find('input').is(':checked')){
-        sortChaines();
-    }
-});
-    var bakCont;
-    function sortChaines() {
-        var chaines = $('div.Chaine-ab'), cont = chaines.children('div');
-        if(chaines.attr('data-reordered') == 'true'){
-            console.log('test');
-            chaines.html('').append(bakCont);
-            $('div.Chaine-ab').attr('data-reordered', 'false');
-        }else{
-            bakCont = cont.clone();
-            console.log(bakCont);
-            cont.detach().sort(function(a, b) {
-                var astts = $(a).data('value');
-                var bstts = $(b).data('value');
-                console.log(astts);
-                //var cstts = $(c).data('value').
-                //return astts - bstts - cstts;
-                return (astts > bstts) ? (astts > bstts) ? 1 : 0 : -1;
-            });
-            $('div.Chaine-ab').attr('data-reordered', 'true');
-            chaines.append(cont);
-        }
-    }
 
-    /////////////////////////////////////////////////////////////
-    /////////////////////////Tri AZ//////////////////////////////
-    /////////////////////////////////////////////////////////////
-    
-    /*$('tri-az').click(function(){
-        console.log('test');
-        $(".chaine-ab div").sort(dec_sort).appendTo('.chaine-ab');
-        //$("#debug").text("Output:");
 
-            // accending sort
-        function asc_sort(a, b){
-        return ($(b).text()) < ($(a).text()) ? 1 : -1;    
-        }
-
-        // decending sort
-        function dec_sort(a, b){
-        return ($(b).text()) > ($(a).text()) ? 1 : -1;    
-        }
-    
-        
-    });*/
-    
-   /* $(".list li").sort(dec_sort).appendTo('.list');
- //$("#debug").text("Output:");
-
-// accending sort
-function asc_sort(a, b){
-        return ($(b).text()) < ($(a).text()) ? 1 : -1;    
-    }
-
-    // decending sort
-    function dec_sort(a, b){
-        return ($(b).text()) > ($(a).text()) ? 1 : -1;    
-    }
-*/
-
-$('#tri-az').click(function(){
-   
-    if($(this).find('input').is(':checked')){
-        sortChainesAZ();
-    }
-    
-});
-    
-    
-    function sortChainesAZ() {
-        console.log('test');
-        var chaines = $('div.Chaine-ab'), cont = chaines.children('div');
-        if(chaines.attr('data-reordered') == 'true'){
-            
-            cont.detach().sort(function(a, b) {
-                var astts = $(a).text();
-                var bstts = $(b).text();
-                //var cstts = $(c).data('value').
-                //return astts - bstts - cstts;
-                return (astts > bstts) ? (astts > bstts) ? -1 : 0 : 1;
-            });
-            $('div.Chaine-ab').attr('data-reordered', 'false');
-            chaines.append(cont);
-        }else{
-           
-            
-            cont.detach().sort(function(a, b) {
-                var astts = $(a).text();
-                var bstts = $(b).text();
-                //var cstts = $(c).data('value').
-                //return astts - bstts - cstts;
-                return (astts > bstts) ? (astts > bstts) ? 1 : 0 : -1;
-            });
-            $('div.Chaine-ab').attr('data-reordered', 'true');
-            chaines.append(cont);
-        }
-    }
 
 
 

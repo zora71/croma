@@ -1,7 +1,6 @@
 <?php $this->layout('layout', ['title'=>'Vod-In']) ?>
 
 <?php $this->start('main_content') ?>
-
 <div id="sideBar">
         <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
         <!------------------------------------------------------------------Platefromes vidéos-------------------------------------------------------------------------------->
@@ -77,7 +76,7 @@
             <div id="tri-date" class="btn-tri rounded waves-effect waves-light green darken-4">
                 <input id="date-sort" type="checkbox" style="display:none">
                 <label id="date-sort-label" for="date-sort">
-                    <div id="A">Date</div>
+                    <div id="date">Date</div>
                     <div id="arrow1" class="ion-arrow-down-c"> </div>
 
 
@@ -87,8 +86,10 @@
         </div>
 
 
-        <!--<div id="abonne" class="bordure chaine">-->
-        <div class="abonnement borderyt">
+        
+        <div  class="Chaine-ab">
+        <div class="abonnement" data-value="1">
+            
             <div class="switch-on">
                 <div class="logo-chaine">
                     <img src="<?= $this->assetUrl('images/logochaine1.jpg') ?>" class="rounded responsive-img">
@@ -103,9 +104,13 @@
 
 
             </div> 
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span></span></a>
+            </div>
         </div>
 
-        <div class="abonnement">
+        <div class="abonnement" data-value="2">
+            
             <div class="switch-on">
                 <div class="logo-chaine">
                     <img src="<?= $this->assetUrl('images/logochaine3.jpg') ?>" class="rounded responsive-img">
@@ -117,13 +122,19 @@
 
                 </div>
                 <span class="titre-chaine">Daily Emotions</span>
+                
+    
+            </div>
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span ></span></a>
 
 
             </div> 
         </div>
 
 
-        <div class="abonnement">
+        <div class="abonnement" data-value="1">
+            
             <div class="switch-on rounded">
                 <div class="logo-chaine">
                     <img src="<?= $this->assetUrl('images/logochaine2.jpg') ?>" class="borderyt rounded responsive-img">
@@ -135,12 +146,17 @@
 
                 </div>
                 <span class="titre-chaine">Dunod</span>
+                
 
 
             </div> 
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span ></span></a>
+            </div>
         </div>
 
-        <div class="abonnement bordertw">
+        <div class="abonnement" data-value="3">
+            
             <div class="switch-on">
                 <div class="logo-chaine">
                     <img src="<?= $this->assetUrl('images/logochaine4.jpg') ?>" class="rounded responsive-img">
@@ -154,41 +170,54 @@
                 <span class="titre-chaine">François le français</span>
 
 
-            </div> 
+            </div>
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span ></span></a>
+            </div>
         </div>
 
-        <div class="abonnement">
+        <div class="abonnement" data-value="2">
+            
             <div class="switch-on">
                 <div class="logo-chaine">
-                    <img src="<?= $this->assetUrl('images/logochaine5.jpg') ?>" class="borderyt img-responsive circle">
+                    <img src="<?= $this->assetUrl('images/logoChaine5.jpg') ?>" class="circle responsive-img">
 
                     <div class="micro-logo">
-                        <img src="<?= $this->assetUrl('images/logoMotion.jpg') ?>" class="img-responsive circle">
+                        <img src="<?= $this->assetUrl('images/logoMotion.jpg') ?>" class="responsive-img circle">
                     </div>
 
 
                 </div>
                 <span class="titre-chaine">Bonheur au quotidien</span>
+                
 
 
             </div> 
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span ></span></a>
+            </div>
         </div>
 
-        <div class="abonnement">
+        <div class="abonnement" data-value="3">
+            
             <div class="switch-on">
                 <div class="logo-chaine">
                     <img src="<?= $this->assetUrl('images/logochaine6.jpg') ?>" class="circle responsive-img">
 
                     <div class="micro-logo">
-                        <img src="<?= $this->assetUrl('images/logoTwitch.jpg') ?>" class="img-responsive circle">
+                        <img src="<?= $this->assetUrl('images/logoTwitch.jpg') ?>" class="responsive-img circle">
                     </div>
 
 
                 </div>
                 <span class="titre-chaine">Geek inside</span>
+                
 
 
-            </div> 
+            </div>
+            <div class="collection">
+            <a href="#!" class="collection-item"><time class="new badge" datetime="2012-02-11 23:26:05+07:00"></time><span ></span></a>
+            </div>
         </div>
 
 
@@ -196,7 +225,7 @@
 
 
 
-
+    </div>
         <!--</div>-->
     </div>
 
