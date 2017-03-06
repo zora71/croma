@@ -153,8 +153,8 @@ class DefaultController extends Controller{
 				$this->redirectToRoute('default_index');
 			} else {
 				//... pseudo ou email NON existant, redirection page login
-				$_SESSION['error']='Mot de passe ou email incorrect';
-				$this->redirectToRoute($app->getConfig('security_login_route_name'));
+				$_SESSION['error']='Mot de passe, pseudo ou email incorrect';
+				$this->redirectToRoute('default_index');
 			}
 
 		}

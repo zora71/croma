@@ -1,0 +1,86 @@
+diff --git a/index.php b/index.php
+index 81f0b5b..e166fbd 100644
+--- a/index.php
++++ b/index.php
+@@ -81,7 +81,7 @@
+                 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+ 
+ 
+-                <div id="tri-chaine" class="switch-on flex">
++                <div class="tri-chaine switch-on flex">
+                     <!--<div id="titre-tri"><span>Trier votre contenu</span></div>-->
+                     <div id="tri-group" class="btn-tri rounded waves-effect waves-light green darken-4">
+                         <input id="group" type="checkbox" style="display:none">
+@@ -115,7 +115,7 @@
+                     <div id="tri-date" class="btn-tri rounded waves-effect waves-light green darken-4">
+                         <input id="date-sort" type="checkbox" style="display:none">
+                         <label id="date-sort-label" for="date-sort">
+-                            <div id="A">Date</div>
++                            <div id="date">Date</div>
+                             <div id="arrow1" class="ion-arrow-down-c"> </div>
+ 
+ 
+@@ -126,7 +126,8 @@
+ 
+ 
+                 <!--<div id="abonne" class="bordure chaine">-->
+-                <div class="abonnement borderyt">
++                <div  class="Chaine-ab">
++                <div class="abonnement" data-value="1">
+                     <div class="switch-on">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine1.jpg" class="rounded responsive-img">
+@@ -143,7 +144,7 @@
+                     </div> 
+                 </div>
+ 
+-                <div class="abonnement">
++                <div class="abonnement" data-value="2">
+                     <div class="switch-on">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine3.jpg" class="rounded responsive-img">
+@@ -161,7 +162,7 @@
+                 </div>
+ 
+ 
+-                <div class="abonnement">
++                <div class="abonnement" data-value="1">
+                     <div class="switch-on rounded">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine2.jpg" class="borderyt rounded responsive-img">
+@@ -178,7 +179,7 @@
+                     </div> 
+                 </div>
+ 
+-                <div class="abonnement bordertw">
++                <div class="abonnement" data-value="3">
+                     <div class="switch-on">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine4.jpg" class="rounded responsive-img">
+@@ -195,7 +196,7 @@
+                     </div> 
+                 </div>
+ 
+-                <div class="abonnement">
++                <div class="abonnement" data-value="2">
+                     <div class="switch-on">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine5.jpg" class="circle borderyt  responsive-img">
+@@ -212,7 +213,7 @@
+                     </div> 
+                 </div>
+ 
+-                <div class="abonnement">
++                <div class="abonnement" data-value="3">
+                     <div class="switch-on">
+                         <div class="logo-chaine">
+                             <img src="images/logochaine6.jpg" class="circle responsive-img">
+@@ -228,7 +229,7 @@
+ 
+                     </div> 
+                 </div>
+-
++            </div>
+ 
+ 
+ 

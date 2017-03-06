@@ -1,7 +1,7 @@
 <?php
 	
 	$w_routes = array(
-		['GET', '/', 'Default#index', 'default_index'],
+		['GET', '/', 'Default#index', 'default_index'],    
         
         // Gestion utilisateurs
         //---------------------
