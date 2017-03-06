@@ -12,9 +12,9 @@ $(document).ready(function() {
 		outDuration: 200, // Transition hors duration
 		startingTop: '4%', // depart du top style attribute
 		endingTop: '10%', // fin du top style attribute
-		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la madol sont valable ?
+		ready: function(modal, trigger) { // Appel de Modal open. Parametre du trigger de la modal sont valable ?
 		},
-		complete: function() { alert("Paramètre enregistré"); } // Appel de Modal close
+		complete: function() {} // Appel de Modal close
 	});
     
     $('.modal2').modal({
@@ -38,12 +38,22 @@ $(document).ready(function() {
             transform: 'scaleX(0)',
             transition: 'all 1s ease'
         }).hide({delay: 2000});
+        $('#modal2').css({
+            width: '25%'
+        });
         modal3.show({delay:2500});
             modal3.css({
                 transform: 'scaleX(1)',
                 transition: 'all 1s ease'
         });
         
+    });
+    
+    $('#fermer').click(function(){
+        modal2.show().css('transform', 'scaleX(1)');
+        modal3.hide().css('transform', 'scaleX(0)');
+        $('#modal2').css('width', '');
+       
     });
 
 	var section = $('#section');

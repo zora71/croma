@@ -1,6 +1,6 @@
 <?php $this->layout('layout', ['title'=>'Vod-In']) ?>
 
-<?php $this->start('main-content') ?>
+<?php $this->start('main_content') ?>
 
 <div id="sideBar">
         <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -160,7 +160,7 @@
         <div class="abonnement">
             <div class="switch-on">
                 <div class="logo-chaine">
-                    <img src="images/logochaine5.jpg" class="circle borderyt  responsive-img">
+                    <img src="<?= $this->assetUrl('images/logochaine5.jpg') ?>" class="borderyt img-responsive circle">
 
                     <div class="micro-logo">
                         <img src="<?= $this->assetUrl('images/logoMotion.jpg') ?>" class="img-responsive circle">

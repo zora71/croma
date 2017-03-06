@@ -1,12 +1,4 @@
 
-@font-face {
-    font-family: 'kalambold';
-    src: url('../fonts/kalam-bold-webfont.woff2') format('woff2'),
-        url('../fonts/kalam-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 body {
     /*height: 10000px;*/
 }
@@ -643,6 +635,7 @@ img {
 
 .row {
     margin-left: inherit !important;
+    margin-bottom: inherit !important;
 }
 
 footer {
@@ -656,6 +649,15 @@ footer a:hover{
 }
 
 /* MISE EN FORME DE LA CLASS MODAL2 */
+
+#erreur {
+    padding: 24px;
+    background-color: white;
+    color: darkred;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 20px;
+}
 
 #modal2 {
     max-height: inherit;
@@ -688,7 +690,7 @@ footer a:hover{
     margin-top: 0;
 }
 
-.modal2 .modal-content {
+.modal2 .modal2-content {
     padding: 24px;
 }
 
@@ -763,6 +765,7 @@ footer a:hover{
 /* MISE EN FORME DE LA CLASS MODAL3 */
 
 #modal3 {
+    padding: 24px;
     display: none;
 }
 
@@ -791,7 +794,6 @@ footer a:hover{
 }
 
 .modal3 .modal3-content {
-    padding: 24px;
     transform: scaleX(0);
 }
 
