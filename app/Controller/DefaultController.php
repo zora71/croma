@@ -369,6 +369,72 @@ class DefaultController extends Controller{
 		}
 	}
 	
+	public function settings(){
+		$user = $this->currentUser->find($_SESSION['user']['id']);
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+			$settings = unserialize($user['settings']); 
+			// 
+			//
+			//
+			//
+
+			// formulaire de preference A FAIRE
+			?>
+			<h1>Préferences </h1>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<form method="POST" role="form" action="">
+								<fieldset>
+									<label for="left">Gauche</label>
+									<input type="radio" id="left" name="layout" value="left">
+									<label for="right">droite</label>
+									<input type="radio" id="right" name="layout" value="right">
+								</fieldset>
+								<fieldset>
+									<label for="youtube">youtube</label>
+									<input type="radio" id="youtube" name="youtube" value="youtube">
+									<label for="twitch">twitch</label>
+									<input type="radio" id="twitch" name="twitch" value="twitch">
+									<label for="dailymotion">dailymotion</label>
+									<input type="radio" id="dailymotion" name="dailymotion" value="dailymotion">
+								</fieldset>
+								<div class="form-group text-center">
+									<input type="submit" name="btnSub" value="Validez" class="btn btn-success btn-lg" />
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<?php 
+			// fin de formualaire			
+		}
+		
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			var_dump ($_POST);
+			// si utilisateur trouvé, on exécute la suite...
+			if ($user <> false) {
+                //mise à jour email valide et réintialisation emailToken
+				$settings = serialize($_POST);
+				$this->currentUser->update(array('settings'=>$settings), $user['id']);
+
+				// redirection page d'accueil (index)
+				$this->redirectToRoute('default_index');
+			} else {
+				echo  "Erreur...";
+				// redirection page d'???????
+				$this->redirectToRoute('default_emailValid');   //// vérifier la route si problème ???????
+			}
+		}
+		
+	}
+	
 	
 	
 	

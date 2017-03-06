@@ -18,6 +18,8 @@
         ['GET|POST', '/pwdNew/', 'Default#pwdNew', 'default_pwdNew'], 
 		//Confirmation email
         ['GET|POST', '/emailValid/', 'Default#emailValid', 'default_emailValid'], 
+		//Reglage des preferences
+        ['GET|POST', '/settings/', 'Default#settings', 'default_settings'], 
         
         // Gestion administration
         //-----------------------
