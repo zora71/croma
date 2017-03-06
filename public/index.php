@@ -4,7 +4,11 @@
 require '../vendor/autoload.php';
 
 //configuration
+require '../app/config.dist.php';
+$w_config_dist = $w_config;
+
 require '../app/config.php';
+$w_config += $w_config_dist;
 
 // rares fonctions globales
 require '../W/globals.php';
