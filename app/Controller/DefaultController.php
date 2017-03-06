@@ -5,6 +5,7 @@ use \W\Controller\Controller;
 use \Model\UsersModel;
 use \Model\Cookie;
 use \W\Security\AuthentificationModel;
+use \PHPMailer;
 
 class DefaultController extends Controller{
 
@@ -112,7 +113,8 @@ class DefaultController extends Controller{
 			// hashage du mot de passe
 			$_POST['password'] = $this->auth->hashPassword($_POST['password']);
 			if ($user = $this->currentUser->findByUuid($_SESSION['uuid'])) {
-
+				$_POST['lastConnexion']= date('Y-m-d H:i:s'); 
+				$_POST['createDate']= date('Y-m-d H:i:s'); 
 				$_POST['emailValid']= false;
 				// stockage de l'utilisateur inséré pour log suivant
 				$newUser = $this->currentUser->update($_POST, $user['id']) ;
@@ -141,7 +143,7 @@ class DefaultController extends Controller{
 				$this->auth->logUserIn($currentUser); // récup. info utilisateur pr stockage $_SESSION
 				Cookie::set('uuid', $currentUser['uuid']);
                 
-                // ajout date dernière connexion sur Uuid
+                // ajout date dernière connexion, et date de creation sur Uuid
 
 				$this->currentUser->update(array('lastConnexion'=>date('Y-m-d H:i:s')), $currentUser['id']) ;
 				
@@ -176,5 +178,172 @@ class DefaultController extends Controller{
 		$this->redirectToRoute('default_index');
 
 	}
+	
+	public function pwdLost() {
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			// Récupère un utilisateur en fonction de son email ou de son pseudo
+			$user = $this->currentUser->getUserByUsernameOrEmail($_POST['usernameOrEmail']);
+//			echo '<pre>';
+//			var_dump ($user);
+//			echo '</pre>';
+
+			// si client trouvé, on exécute la suite...
+			if ($user <> false) {
+
+				// générer un "token"
+				$pwdToken = md5($user['email'].date('Ymd')); // email + date jour codée en MD5
+
+				// chargement adresse HOST 
+				$link = "http://".$_SERVER['SERVER_NAME']."/croma/public/pwdNew/?token=".$pwdToken;
+
+				// envoyer le "token" par mail au client
+				set_time_limit(60);
+				$mail = new PHPMailer(true);
+				$errors = array('vide');
+				try {
+					$mail->SMTPdebug=3;
+					$mail->isSMTP();                									// connexion directe au serveur SMTP
+					$mail->isHTML();                									// utilisation format HTML
+					$mail->Host = "smtp.gmail.com"; 									// serveur de messagerie
+					$mail->Charset = "UTF-8";       									// type caractères
+					$mail->Port = 465;              									// port obligatoire de google
+					$mail->SMTPAuth = true;         									// fournit login/password au serveur
+					$mail->SMTPSecure = 'ssl';      									// certifcat SSL
+					$mail->Username = 'courswebforce3@gmail.com';						// utilsateur SMTP
+					$mail->Password = 'webforce3';										// mot de passe SMTP
+					$mail->setFrom('courswebforce3@gmail.com', 'vodin');				// expéditeur
+					$mail->addAddress($user['email']);      							// destinataire
+					$mail->Subject = utf8_decode('vodin -  Récupération mot de passe');	// sujet du mail
+					$mail->Body = '
+						<html>
+							<head>
+								<meta charset="utf-8"/>
+								<style>h1{color:green;}</style>
+							</head>
+							<body>
+								<h1>Bonjour</h1>
+								<p>Vous avez signalé votre mot de passe comme oublié.
+								Veuillez cliquer sur le lien suivant pour le réinitialiser.</p>
+								<a href="'.$link.'">Réinitialiser votre mot de passe</a>
+								<br/>
+								<p>Si vous n\'êtes pas à l\'origine de ce mail, veuillez le signaler à notre service client.</p>
+								<br/>
+								<p> Ceci est un mail automatique, veuillez ne pas répondre. Merci.</p>
+								<br/>
+								<p>L\'équipe Vodin</p>
+							</body>
+						</html>';
+					 // - test si envoi mail OK
+					if (!$mail->send()) {
+						$errors[] = 'Erreur envoi : '.$mail->ErrorInfo;
+					} else {
+						$errors[] = 'Vérifier votre Email pour initialiser votre mot de passe ';
+					}
+				} catch (phpmailerException $e) {
+					$errors[] = $e->errorMessage();
+				} catch (Exception $e) {
+					$errors[] = $e->getMessage();
+				}
+				// soit le email envoyé OK, soit message en erreur... afficher $errors ds une div ???
+				print_r($errors);
+				//--------------------------------------           
+
+				// mettre à jour client (BDD) avec le token généré, lost à 1
+				$this->currentUser->update(array('pwdToken'=>$pwdToken), $user['id']);
+				// redirection page d'accueil (index)
+				$this->redirectToRoute('default_index');
+			} else {
+				echo  "Votre email est invalide... Réessayer";
+				// si erreur, on refait une saisie de email
+			}
+
+		} 
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+			?>
+			<h1>mot de passe perdu</h1>
+
+				<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-6">
+										<form method="POST" role="form" action="">
+
+											<div class="form-group">
+												<label class="control-label" for="usernameOrEmail">Nom ou Email</label>
+												<input name="usernameOrEmail" id="usernameOrEmail" type="text" class="form-control" placeholder="Enter username OR Email" required/>
+											</div>
+											<div class="form-group text-center">
+												<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
+
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- /.row (nested) -->
+							</div>
+							<!-- /.panel-body -->
+						</div>
+
+				<?php 
+		}
+	
+	}
+	
+	
+	public function pwdNew(){
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+			$token = htmlentities(strip_tags($_GET['token']));
+			echo '<pre>';
+			var_dump ($_GET);
+			echo '</pre>';
+			
+		
+		
+		?>
+			<h1>nouveau mot passe </h1>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<form method="POST" role="form" action="">
+								<input type="hidden" name="pwdToken" value="'<?= $token ?>">
+								<div class="form-group">
+									<label class="control-label" for="password">Nouveau password</label>
+									<input name="password" id="password" type="text" class="form-control" placeholder="Enter votre mot de pass" required/>
+								</div>
+								<div class="form-group text-center">
+									<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
+
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+
+	<?php 
+			
+		}
+		
+			// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			// Récupère un utilisateur en fonction de son email ou de son pseudo
+			echo '<pre>';
+			var_dump ($_POST);
+			echo '</pre>';
+			$user = $this->currentUser->findByPwdToken($_POST['token']);
+		
+		}
+	}
+	
+	
+	
+	
 }
 ?>
