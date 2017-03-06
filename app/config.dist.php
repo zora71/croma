@@ -24,7 +24,16 @@ $w_config = [
 	'php_mailer_host' => 'SSL0.OVH.NET'
 
 
-    //api keys
+    //api keys vodin.ovh
+    'dailymotion_api_key' => '19180670c2b0be2f4155',
+    'dailymotion_api_secret' => '46be83e9953dd8436d0ab3459d670098eccef889',
+    'youtube_api_key' => '764391474974-3a75lbqo1sieahfae0m9uvqdvqcpp3dl.apps.googleusercontent.com',
+    'youtube_api_secret' => 'QCDJqOe4ciOX9Zwua9NQzGsc',
+    'twitch_api_key' => 'tz8r58kqlo410037myjw641zdawprw',
+    'twitch_api_secret' => 'q5sclloht7fwgd4ysclb1twz984a0y',
+
+
+    //api keys localhost
     'dailymotion_api_key' => 'e16c74f9cbdf3bb326af',
     'dailymotion_api_secret' => 'a2da41393c7c7d745c9d688a88ee6a60756fee6f',
     'youtube_api_key' => '857685741489-90clnepl9etsuvv06pao3v2i84qb904k.apps.googleusercontent.com',
