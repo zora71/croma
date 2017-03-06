@@ -18,6 +18,13 @@ $w_config = [
 
 	'security_login_route_name' => 'login',			//nom de la route affichant le formulaire de connexion
 
+	'php_mailer_email' => 'noreply@vodin.ovh',
+	'php_mailer_password' => '7HKrfUxfWwMqdv38',
+	'php_mailer_port' => 465,
+	'php_mailer_host' => 'SSL0.OVH.NET'
+
+
+
 	// configuration globale
 	'site_name'	=> '', 								// contiendra le nom du site
 ];
