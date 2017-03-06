@@ -21,7 +21,7 @@ $w_config = [
 	'php_mailer_email' => 'noreply@vodin.ovh',
 	'php_mailer_password' => '7HKrfUxfWwMqdv38',
 	'php_mailer_port' => 465,
-	'php_mailer_host' => 'SSL0.OVH.NET'
+	'php_mailer_host' => 'SSL0.OVH.NET',
 
 
     //api keys vodin.ovh
