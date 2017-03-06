@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $w_config = [
    	//information de connexion à la bdd
@@ -24,6 +24,13 @@ $w_config = [
 	'php_mailer_host' => 'SSL0.OVH.NET'
 
 
+    //api keys
+    'dailymotion_api_key' => 'e16c74f9cbdf3bb326af',
+    'dailymotion_api_secret' => 'a2da41393c7c7d745c9d688a88ee6a60756fee6f',
+    'youtube_api_key' => '',
+    'youtube_api_secret' => '',
+    'twitch_api_key' => '',
+    'twitch_api_secret' => '',
 
 	// configuration globale
 	'site_name'	=> '', 								// contiendra le nom du site
