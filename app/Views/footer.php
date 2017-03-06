@@ -54,21 +54,26 @@
     <div id="modal2-content" class="modal2-content">
         <fieldset>
             <legend>Login</legend>
-            <form method="post" action="#">
+            <form method="POST" action="<?php echo $this->url('default_connexion'); ?>">
                 <div class="row">
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="pseudo" type="text" class="validate">
-                                <label for="pseudo">Pseudo</label>
+                                <input name="usernameOrEmail" id="usernameOrEmail" type="text" class="validate">
+                                <label for="usernameOrEmail">Pseudo ou email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
+                                <input name="pwd" id="pwd" type="password" class="validate">
+                                <label for="pwd">Password</label>
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col s12">
+                                    <button type="submit" class="waves-effect waves-light btn green darken-4">Connexion</button>
+                                </div>
+                            </div>
                     </form>
                 </div>
 
@@ -84,44 +89,55 @@
         </fieldset>
     </div>
     <div id="modal3">
-     <div class="modal3-content">
-        <fieldset>
-            <legend>Formulaire d'inscription</legend>
-            <form method="post" action="#">
-                <div class="row">
-                    <form class="col s12">
-                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="nom" type="text" class="validate">
-                                <label for="nom">Nom</label>
+        <div class="modal3-content">
+            <fieldset>
+                <legend>Formulaire d'inscription</legend>
+                <form method="POST" action="<?=$this->url('default_inscription')?>">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="lastname" id="lastname" type="text" class="validate">
+                                    <label for="lastname">Nom</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="prenom" type="password" class="validate">
-                                <label for="prenom">Prénom</label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="firstname" id="firstname" type="text" class="validate">
+                                    <label for="firstname">Prénom</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="pseudo" type="text" class="validate">
-                                <label for="pseudo">Pseudo</label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="pseudo" id="pseudo" type="text" class="validate">
+                                    <label for="pseudo">Pseudo</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="email" id="email" type="email" class="validate">
+                                    <label for="email">Email</label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </form>
-        </fieldset>
-    </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input name="password" id="password" type="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <button type="submit" class="waves-effect waves-light btn green darken-4">S'inscrire</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal2-action modal-close waves-effect waves-green btn-flat right">Valider</a>
+        <a href="#!" class="modal2-action modal-close waves-effect waves-green btn-flat right">Fermer</a>
     </div>
 </div>
 <script src="<?= $this->assetUrl('vendor/jquery/jquery.min.js') ?>"></script>
