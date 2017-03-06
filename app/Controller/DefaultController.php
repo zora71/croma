@@ -5,22 +5,26 @@ use \W\Controller\Controller;
 use \Model\UsersModel;
 use \Model\Cookie;
 use \W\Security\AuthentificationModel;
-use \PHPMailer;
+use \Model\Mailer;
+
 
 class DefaultController extends Controller{
 
 	protected $uuid;
 	protected $currentUser;
 	protected $auth;
+	protected $mail;
 
 	public function __construct() {
 		$this->currentUser = new UsersModel;
 		$this->auth = new AuthentificationModel;
+		$this->mail = new Mailer;
 	}
 
-	public function home() {
-		$this->show('default/home');
-	}
+//	public function home() {
+//		$mail = new Mailer;
+//		print_r($mail->send('zora.amar71@gmail.com', 'test', 'test'));
+//	}
 
 	// fonction generer uuid
 	private function gen_uuid() {
@@ -95,7 +99,7 @@ class DefaultController extends Controller{
 
 			// pseudo et email (clé unique en BDD), on est obligé de les renseigner
             // emailValid chargé à vrai (utilisateur non inscrit, email non valider)
-			$this->currentUser->insert(array('uuid'=>$newUuid, 'pseudo'=>$newUuid, 'email'=>$newUuid, 'emailValid'=>true));
+			$this->currentUser->insert(array('uuid'=>$newUuid, 'pseudo'=>$newUuid, 'email'=>$newUuid));
 			// mise en session
 			$_SESSION['uuid'] = $newUuid;
 
@@ -115,12 +119,29 @@ class DefaultController extends Controller{
 			if ($user = $this->currentUser->findByUuid($_SESSION['uuid'])) {
 				$_POST['lastConnexion']= date('Y-m-d H:i:s'); 
 				$_POST['createDate']= date('Y-m-d H:i:s'); 
-				$_POST['emailValid']= false;
-				// stockage de l'utilisateur inséré pour log suivant
-				$newUser = $this->currentUser->update($_POST, $user['id']) ;
+				$_POST['emailToken']= md5($user['email'].date('Ymd')); // email + date jour codée en MD5
+				// Envoi mail pour confirmation d'inscription
+				// chargement adresse HOST 
+				$link = "http://".$_SERVER['SERVER_NAME']."/croma/public/emailValid/?token=".$_POST['emailToken'];
+
+				// envoyer le "token" par mail au client
+				$to = $_POST['email']; // destinataire
+				$subject = utf8_decode('vodin -  Confirmation inscription');	// sujet du mail 
+				$body = '<h1>Bonjour</h1>
+						<p>Confirmez votre adresse mail afin de validez votre inscription.</p>
+						<a href="'.$link.'">Validation inscription</a>
+						<br/>
+						<p>Si vous n\'êtes pas à l\'origine de ce mail, veuillez le signaler à notre service client.</p>
+						<br/>
+						<p> Ceci est un mail automatique, veuillez ne pas répondre. Merci.</p>
+						<br/>
+						<p>L\'équipe Vodin</p>';
+				$this->mail->send($to, $subject, $body);
+				// mettre à jour utilisateur (BDD) avec le token généré
+				$newUser = $this->currentUser->update($_POST, $user['id']);
 				if ($newUser) {
 					$this->auth->logUserIn($newUser);
-				}					
+				}
 			}
 		}
 		$this->redirectToRoute('default_index');
@@ -178,17 +199,14 @@ class DefaultController extends Controller{
 		$this->redirectToRoute('default_index');
 
 	}
-	
+	//Fonction pwdLost() mot de passe perdu
 	public function pwdLost() {
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Récupère un utilisateur en fonction de son email ou de son pseudo
 			$user = $this->currentUser->getUserByUsernameOrEmail($_POST['usernameOrEmail']);
-//			echo '<pre>';
-//			var_dump ($user);
-//			echo '</pre>';
-
-			// si client trouvé, on exécute la suite...
+			
+			// si utilisateur trouvé, on exécute la suite...
 			if ($user <> false) {
 
 				// générer un "token"
@@ -198,126 +216,80 @@ class DefaultController extends Controller{
 				$link = "http://".$_SERVER['SERVER_NAME']."/croma/public/pwdNew/?token=".$pwdToken;
 
 				// envoyer le "token" par mail au client
-				set_time_limit(60);
-				$mail = new PHPMailer(true);
-				$errors = array('vide');
-				try {
-					$mail->SMTPdebug=3;
-					$mail->isSMTP();                									// connexion directe au serveur SMTP
-					$mail->isHTML();                									// utilisation format HTML
-					$mail->Host = "smtp.gmail.com"; 									// serveur de messagerie
-					$mail->Charset = "UTF-8";       									// type caractères
-					$mail->Port = 465;              									// port obligatoire de google
-					$mail->SMTPAuth = true;         									// fournit login/password au serveur
-					$mail->SMTPSecure = 'ssl';      									// certifcat SSL
-					$mail->Username = 'courswebforce3@gmail.com';						// utilsateur SMTP
-					$mail->Password = 'webforce3';										// mot de passe SMTP
-					$mail->setFrom('courswebforce3@gmail.com', 'vodin');				// expéditeur
-					$mail->addAddress($user['email']);      							// destinataire
-					$mail->Subject = utf8_decode('vodin -  Récupération mot de passe');	// sujet du mail
-					$mail->Body = '
-						<html>
-							<head>
-								<meta charset="utf-8"/>
-								<style>h1{color:green;}</style>
-							</head>
-							<body>
-								<h1>Bonjour</h1>
-								<p>Vous avez signalé votre mot de passe comme oublié.
-								Veuillez cliquer sur le lien suivant pour le réinitialiser.</p>
-								<a href="'.$link.'">Réinitialiser votre mot de passe</a>
-								<br/>
-								<p>Si vous n\'êtes pas à l\'origine de ce mail, veuillez le signaler à notre service client.</p>
-								<br/>
-								<p> Ceci est un mail automatique, veuillez ne pas répondre. Merci.</p>
-								<br/>
-								<p>L\'équipe Vodin</p>
-							</body>
-						</html>';
-					 // - test si envoi mail OK
-					if (!$mail->send()) {
-						$errors[] = 'Erreur envoi : '.$mail->ErrorInfo;
-					} else {
-						$errors[] = 'Vérifier votre Email pour initialiser votre mot de passe ';
-					}
-				} catch (phpmailerException $e) {
-					$errors[] = $e->errorMessage();
-				} catch (Exception $e) {
-					$errors[] = $e->getMessage();
-				}
-				// soit le email envoyé OK, soit message en erreur... afficher $errors ds une div ???
-				print_r($errors);
-				//--------------------------------------           
-
-				// mettre à jour client (BDD) avec le token généré, lost à 1
+				$to = $user['email']; // destinataire
+				$subject = utf8_decode('vodin -  Récupération mot de passe');	// sujet du mail 
+				$body = '<h1>Bonjour</h1>
+						<p>Vous avez signalé votre mot de passe comme oublié.
+						Veuillez cliquer sur le lien suivant pour le réinitialiser.</p>
+						<a href="'.$link.'">Réinitialiser votre mot de passe</a>
+						<br/>
+						<p>Si vous n\'êtes pas à l\'origine de ce mail, veuillez le signaler à notre service client.</p>
+						<br/>
+						<p> Ceci est un mail automatique, veuillez ne pas répondre. Merci.</p>
+						<br/>
+						<p>L\'équipe Vodin</p>';
+				$this->mail->send($to, $subject, $body);
+				// mettre à jour utilisateur (BDD) avec le token généré
 				$this->currentUser->update(array('pwdToken'=>$pwdToken), $user['id']);
 				// redirection page d'accueil (index)
 				$this->redirectToRoute('default_index');
 			} else {
 				echo  "Votre email est invalide... Réessayer";
 				// si erreur, on refait une saisie de email
+				$this->redirectToRoute('default_pwdLost');
 			}
-
 		} 
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+						
+			// formulaire saisie mot de passe perdu A FAIRE
 			?>
 			<h1>mot de passe perdu</h1>
-
 				<div class="panel panel-default">
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-lg-6">
-										<form method="POST" role="form" action="">
-
-											<div class="form-group">
-												<label class="control-label" for="usernameOrEmail">Nom ou Email</label>
-												<input name="usernameOrEmail" id="usernameOrEmail" type="text" class="form-control" placeholder="Enter username OR Email" required/>
-											</div>
-											<div class="form-group text-center">
-												<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
-
-											</div>
-										</form>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-6">
+								<form method="POST" role="form" action="">
+									<div class="form-group">
+										<label class="control-label" for="usernameOrEmail">Nom ou Email</label>
+										<input name="usernameOrEmail" id="usernameOrEmail" type="text" class="form-control" placeholder="Enter username OR Email" required/>
 									</div>
-								</div>
-								<!-- /.row (nested) -->
+									<div class="form-group text-center">
+										<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
+									</div>
+								</form>
 							</div>
-							<!-- /.panel-body -->
 						</div>
-
-				<?php 
+						<!-- /.row (nested) -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+			<?php 
+			// fin de formulaire
 		}
-	
 	}
 	
-	
+	//Fonction pwdNew() modification du mot de passe
 	public function pwdNew(){
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			$token = htmlentities(strip_tags($_GET['token']));
-			echo '<pre>';
-			var_dump ($_GET);
-			echo '</pre>';
 			
-		
-		
-		?>
+			// formulaire saisie nouveau mot de passe A FAIRE
+			?>
 			<h1>nouveau mot passe </h1>
-
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-6">
 							<form method="POST" role="form" action="">
-								<input type="hidden" name="pwdToken" value="'<?= $token ?>">
+								<input type="hidden" name="pwdToken" value="<?= $token ?>">
 								<div class="form-group">
 									<label class="control-label" for="password">Nouveau password</label>
 									<input name="password" id="password" type="text" class="form-control" placeholder="Enter votre mot de pass" required/>
 								</div>
 								<div class="form-group text-center">
 									<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
-
 								</div>
 							</form>
 						</div>
@@ -326,19 +298,74 @@ class DefaultController extends Controller{
 				</div>
 				<!-- /.panel-body -->
 			</div>
-
-	<?php 
-			
+			<?php 
+			// fin de formualaire			
 		}
 		
-			// vérif méthode envoyée 'POST' ou 'GET'
+		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// Récupère un utilisateur en fonction de son email ou de son pseudo
-			echo '<pre>';
-			var_dump ($_POST);
-			echo '</pre>';
-			$user = $this->currentUser->findByPwdToken($_POST['token']);
+			$user = $this->currentUser->findByToken($_POST['pwdToken'], 'P');
+			// si utilisateur trouvé, on exécute la suite...
+			if ($user <> false) {
+				//nettoyage et hashage le mot de passe
+				$password= $this->auth->hashPassword(htmlentities(strip_tags($_POST['password'])));
+                //mise à jour du nouveau de mot passe et réintialisation pwdToken
+				$this->currentUser->update(array('password'=>$password, 'pwdToken'=>""), $user['id']);
+				// redirection page d'accueil (index)
+				$this->redirectToRoute('default_index');
+			} else {
+				echo  "Erreur...";
+				// redirection page d'???????
+				$this->redirectToRoute('default_pwdNew');   //// vérifier la route si problème ???????
+			}
+		}
+	}
+	
+	//Fonction emailValid() confirmation email
+	public function emailValid(){
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+			$token = htmlentities(strip_tags($_GET['token']));
+			
+			// formulaire de confirmation email A FAIRE
+			?>
+			<h1>Confirmez email </h1>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<form method="POST" role="form" action="">
+								<input type="hidden" name="emailToken" value="<?= $token ?>">
+								<div class="form-group text-center">
+									<input type="submit" name="btnSub" value="Validez" class="btn btn-success btn-lg" />
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<?php 
+			// fin de formualaire			
+		}
 		
+		// vérif méthode envoyée 'POST' ou 'GET'
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			// Récupère un utilisateur en fonction de son email ou de son pseudo
+			$user = $this->currentUser->findByToken($_POST['emailToken'], 'E');
+			// si utilisateur trouvé, on exécute la suite...
+			if ($user <> false) {
+                //mise à jour email valide et réintialisation emailToken
+				$this->currentUser->update(array('emailValid'=>true, 'emailToken'=>""), $user['id']);
+				// redirection page d'accueil (index)
+				$this->redirectToRoute('default_index');
+			} else {
+				echo  "Erreur...";
+				// redirection page d'???????
+				$this->redirectToRoute('default_emailValid');   //// vérifier la route si problème ???????
+			}
 		}
 	}
 	
