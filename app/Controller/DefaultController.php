@@ -8,6 +8,10 @@ use \W\Security\AuthentificationModel;
 use \Model\Mailer;
 
 
+use \Model\TwitchApi;
+use \Model\Channel;
+use \Model\Video;
+
 class DefaultController extends Controller{
 
 	protected $uuid;
@@ -25,6 +29,39 @@ class DefaultController extends Controller{
 //		$mail = new Mailer;
 //		print_r($mail->send('zora.amar71@gmail.com', 'test', 'test'));
 //	}
+
+	public function twauth() {
+		$tw = new TwitchApi();
+		$tw->connect();
+	}
+
+	public function twchannels() {
+		$tw = new TwitchApi();
+		$channels = $tw->getChannels();
+		foreach ($channels as $key => $channel) {
+			echo '<a href="'.$this->generateUrl('twvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a><br>';
+		}
+
+	}
+
+	public function twvideos($id) {
+		$tw = new TwitchApi();
+		$videos = $tw->getChannelVideos($id);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'"><br>';
+		}
+	}
+
+	public function twsearch($search = null) {
+		$tw = new TwitchApi();
+		$videos = $tw->search($search);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
+		}
+		else echo 'no results';
+	}
 
 	// fonction generer uuid
 	private function gen_uuid() {
