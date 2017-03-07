@@ -368,7 +368,7 @@ class DefaultController extends Controller{
 										<input name="usernameOrEmail" id="usernameOrEmail" type="text" class="form-control" placeholder="Enter username OR Email" required/>
 									</div>
 									<div class="form-group text-center">
-										<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
+										<input type="submit" value="Envoyer" class="btn btn-success btn-lg" />
 									</div>
 								</form>
 							</div>
@@ -402,7 +402,7 @@ class DefaultController extends Controller{
 									<input name="password" id="password" type="text" class="form-control" placeholder="Enter votre mot de pass" required/>
 								</div>
 								<div class="form-group text-center">
-									<input type="submit" name="btnSub" value="Envoyer" class="btn btn-success btn-lg" />
+									<input type="submit" value="Envoyer" class="btn btn-success btn-lg" />
 								</div>
 							</form>
 						</div>
@@ -451,7 +451,7 @@ class DefaultController extends Controller{
 							<form method="POST" role="form" action="">
 								<input type="hidden" name="emailToken" value="<?= $token ?>">
 								<div class="form-group text-center">
-									<input type="submit" name="btnSub" value="Validez" class="btn btn-success btn-lg" />
+									<input type="submit" value="Validez" class="btn btn-success btn-lg" />
 								</div>
 							</form>
 						</div>
@@ -499,9 +499,9 @@ class DefaultController extends Controller{
             $youtube = ' ';
             $twitch = ' ';
             $dailymotion = ' ';
-            
+			
             // vérif. si préférences renseignées
-            if (count($settings) <> 0) {
+            if ($settings) {
                 //... si OK, on les récupère (checked pr les préférences renseignées)
                 if ($settings['layout'] == 'left') {$left = 'checked';}
                 else {$right = 'checked';}
@@ -511,6 +511,9 @@ class DefaultController extends Controller{
             } else {
                 //... si non OK, on charge par défaut left et le reste à blanc
                 $left = 'checked';
+				$youtube = 'checked';
+				$twitch = 'checked';
+				$dailymotion = 'checked';
             }
 			
 			// formulaire de preference A FAIRE
@@ -562,7 +565,7 @@ class DefaultController extends Controller{
                                     </label> On <br/>
 								</fieldset>
 								<div class="form-group text-center">
-									<input type="submit" name="btnSub" value="Validez" class="btn btn-success btn-lg" />
+									<input type="submit" value="Validez" class="btn btn-success btn-lg" />
 								</div>
 							</form>
 						</div>
