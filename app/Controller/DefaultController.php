@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-use \W\Controller\Controller;
+use \Controller\Controller;
 use \Model\UsersModel;
 use \Model\Cookie;
 use \W\Security\AuthentificationModel;
