@@ -482,37 +482,84 @@ class DefaultController extends Controller{
 		}
 	}
 
-	public function settings(){
-		$user = $this->currentUser->find($_SESSION['user']['id']);
-		// vérif méthode envoyée 'POST' ou 'GET'
+	// Fonction settings() formulaire de saisie des préférences
+	public function settings() {
+        
+        // récup. utilisateur en cours (en 'POST' ou en 'GET')
+        $user = $this->currentUser->find($_SESSION['user']['id']);
+		
+        // vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-			$settings = unserialize($user['settings']);
-			//
-			//
-			//
-			//
-
+            
+            // dé-sérialise la table des préférences pour récup.
+			$settings = unserialize($user['settings']); 
+            // initialisation des préférences avant chargement
+            $left = ' '; 
+            $right = ' ';
+            $youtube = ' ';
+            $twitch = ' ';
+            $dailymotion = ' ';
+            
+            // vérif. si préférences renseignées
+            if (count($settings) <> 0) {
+                //... si OK, on les récupère (checked pr les préférences renseignées)
+                if ($settings['layout'] == 'left') {$left = 'checked';}
+                else {$right = 'checked';}
+                if (isset($settings['youtube'])) {$youtube = 'checked';}
+                if (isset($settings['twitch'])) {$twitch = 'checked';}
+                if (isset($settings['dailymotion'])) {$dailymotion = 'checked';}
+            } else {
+                //... si non OK, on charge par défaut left et le reste à blanc
+                $left = 'checked';
+            }
+			
 			// formulaire de preference A FAIRE
 			?>
+
+            <!--style pr tester un switch (voir les valeurs dans le serialize) A SUPPRIMER -->
+            <style> 
+                .switch {position: relative; display: inline-block; width: 60px; height: 34px;}
+                .switch input {display:none;}
+                .slider {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+                         background-color: #ccc; transition: .4s;}
+                .slider:before {position: absolute; content: ""; height: 26px; width: 26px;
+                                left: 4px; bottom: 4px; background-color: white; transition: .4s;}
+                input:checked + .slider {background-color: #2196F3;}
+                input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
+                input:checked + .slider:before {transform: translateX(26px);}
+            </style>
+
+            <!-- formulaire des préférences -->
 			<h1>Préferences </h1>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-6">
 							<form method="POST" role="form" action="">
+                                <!-- $left, $right, $youtube, $twith, $dailymotion : -->
+                                <!-- variables php si renseignées en BDD "checked" sinon " " -->
 								<fieldset>
 									<label for="left">Gauche</label>
-									<input type="radio" id="left" name="layout" value="left">
+                                    <input type="radio" id="left" name="layout" value="left" <?= $left ?>>
 									<label for="right">droite</label>
-									<input type="radio" id="right" name="layout" value="right">
+                                    <input type="radio" id="right" name="layout" value="right" <?= $right ?>>
 								</fieldset>
 								<fieldset>
-									<label for="youtube">youtube</label>
-									<input type="radio" id="youtube" name="youtube" value="youtube">
-									<label for="twitch">twitch</label>
-									<input type="radio" id="twitch" name="twitch" value="twitch">
-									<label for="dailymotion">dailymotion</label>
-									<input type="radio" id="dailymotion" name="dailymotion" value="dailymotion">
+                                    <b>Youtube</b> Off 
+                                    <label for="youtube" class="switch">
+									    <input type="checkbox" id="youtube" name="youtube" value="$youtube" <?= $youtube ?> >
+                                        <div class="slider"></div>
+                                    </label> On <br/>
+                                    <b>Twitch</b> Off 
+									<label for="twitch" class="switch">
+									    <input type="checkbox" id="twitch" name="twitch" value="$twitch" <?= $twitch ?>>
+                                        <div class="slider"></div>
+                                    </label> On <br/>
+                                    <b>Dailymotion</b> Off 
+									<label for="dailymotion" class="switch">
+									    <input type="checkbox" id="dailymotion" name="dailymotion" value="$dailymotion" <?= $dailymotion ?>>
+                                        <div class="slider"></div>
+                                    </label> On <br/>
 								</fieldset>
 								<div class="form-group text-center">
 									<input type="submit" name="btnSub" value="Validez" class="btn btn-success btn-lg" />
@@ -524,19 +571,18 @@ class DefaultController extends Controller{
 				</div>
 				<!-- /.panel-body -->
 			</div>
-			<?php
-			// fin de formualaire
+			<?php 
+			// fin de formualaire			
 		}
-
+		
 		// vérif méthode envoyée 'POST' ou 'GET'
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			var_dump ($_POST);
+            
 			// si utilisateur trouvé, on exécute la suite...
 			if ($user <> false) {
-                //mise à jour email valide et réintialisation emailToken
+                 // sérialise la table des préférences pour mise à jour
 				$settings = serialize($_POST);
 				$this->currentUser->update(array('settings'=>$settings), $user['id']);
-
 				// redirection page d'accueil (index)
 				$this->redirectToRoute('default_index');
 			} else {
@@ -545,9 +591,8 @@ class DefaultController extends Controller{
 				$this->redirectToRoute('default_emailValid');   //// vérifier la route si problème ???????
 			}
 		}
-
+		
 	}
-
 
 
 
