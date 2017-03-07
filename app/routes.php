@@ -16,6 +16,12 @@
                 ['GET', '/ytsearch/[:search]', 'Default#ytsearch', 'ytsearch'],
                 ['GET', '/ytsearch', 'Default#ytsearch', 'ytsearch_random'],
 
+                ['GET', '/twauth', 'Default#twauth', 'twauth'],
+                ['GET', '/twchannels', 'Default#twchannels', 'twchannels'],
+                ['GET', '/twvideos/[:id]', 'Default#twvideos', 'twvideos'],
+                ['GET', '/twsearch/[:search]', 'Default#twsearch', 'twsearch'],
+                ['GET', '/twsearch', 'Default#twsearch', 'twsearch_random'],
+
         // Gestion utilisateurs
         //---------------------
         // inscription

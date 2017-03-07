@@ -10,6 +10,7 @@ use \Model\Mailer;
 
 use \Model\DailymotionApi;
 use \Model\YoutubeApi;
+use \Model\TwitchApi;
 use \Model\Channel;
 use \Model\Video;
 
@@ -44,9 +45,8 @@ class DefaultController extends Controller{
 		$channels = $dm->getChannels();
 		foreach ($channels as $key => $channel) {
 			echo '<a href="'.$this->generateUrl('dmvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a>';
-		}
-
-	}
+                }
+        }
 
 	public function dmvideos($id) {
 		$dm = new DailymotionApi();
@@ -96,6 +96,42 @@ class DefaultController extends Controller{
 	public function ytsearch($search = null) {
 		$yt = new YoutubeApi();
 		$videos = $yt->search($search);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
+		}
+		else echo 'no results';
+	}
+
+        /***************/
+        /*   Twitch    */
+        /***************/
+	public function twauth() {
+		$tw = new TwitchApi();
+		$tw->connect();
+	}
+
+	public function twchannels() {
+		$tw = new TwitchApi();
+		$channels = $tw->getChannels();
+		foreach ($channels as $key => $channel) {
+			echo '<a href="'.$this->generateUrl('twvideos', [ 'id' => $channel->getUuid() ]).'">'.$channel->getTitle().'</a><br>';
+		}
+
+	}
+
+	public function twvideos($id) {
+		$tw = new TwitchApi();
+		$videos = $tw->getChannelVideos($id);
+		if ($videos)
+		foreach ($videos as $key => $video) {
+			echo '<img src="'.$video->getThumbnail().'"><br>';
+		}
+	}
+
+	public function twsearch($search = null) {
+		$tw = new TwitchApi();
+		$videos = $tw->search($search);
 		if ($videos)
 		foreach ($videos as $key => $video) {
 			echo '<img src="'.$video->getThumbnail().'">'.$video->getTitle().'<br>';
