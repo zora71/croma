@@ -240,90 +240,90 @@
             <div class="row group">
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">		
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/dDW2ZYbZTHY">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="//www.dailymotion.com/embed/video/x55o4hw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
             </div>
 
             <div class="row group">
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-            </div>
-
-            <div class="row group">
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
             </div>
 
             <div class="row group">
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-            </div>
-
-            <div class="row group">
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
-                </div>
-                <div class="player col l3 z-depth-5">
-                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
             </div>
 
             <div class="row group">
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
                 <div class="player col l3 z-depth-5">
                     <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
-                    <div class="caption">Titre: <span>Minecraft</span> Temp: <span>2.55</span></div>
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+            </div>
+
+            <div class="row group">
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+            </div>
+
+            <div class="row group">
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
+                </div>
+                <div class="player col l3 z-depth-5">
+                    <img src="<?= $this->assetUrl('images/VodIn.PNG') ?>" class="vignette" data-url="https://www.youtube.com/embed/B7wkzmZ4GBw">
+                    <div class="caption">Titre : <span>Minecraft</span> Temps : <span>2.55</span></div>
                 </div>
             </div>
 
@@ -331,7 +331,7 @@
         <div class="overlay">
         </div>
         <iframe class="mini" frameborder="0" allowfullscreen></iframe>
-        <div id="close" class="btn-floating waves-effect waves-light red btn-gauche"><i class="material-icons">close</i></div>
+        <div id="close" class="btn-floating waves-effect waves-light red btn-gauche"><i class="material-icons">Fermer</i></div>
     </div>
 
 <?php $this->stop('main-content') ?>

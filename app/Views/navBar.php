@@ -41,7 +41,7 @@ if(isset($_SESSION['error'])) {
                 <div id="searchNav" class="nav-wrapper flex">
                     <form id="searchBar">
                         <div id="searchChamp" class="input-field">
-                            <input id="search" type="search" placeholder="  Recherche.." required>
+                            <input id="search" type="search" placeholder="  Recherche..." required>
                             <label class="label-icon" for="search"></label>
                         </div>
                     </form>

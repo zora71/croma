@@ -61,7 +61,7 @@
     <div id="modal2-content" class="modal2-content">
         <?php if (isset($error)) : ?><div id="erreur" class=""><b><?=$error?></b></div><?php endif; ?>
         <fieldset>
-            <legend>Login</legend>
+            <legend>Identification</legend>
             <form method="POST" action="<?php echo $this->url('default_connexion'); ?>">
                 <div class="row">
                     <form class="col s12">
@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="pwd" id="pwd" type="password" class="validate">
-                                <label for="pwd">Password</label>
+                                <label for="pwd">Mot de passe</label>
                             </div>
                         </div>
                         <div class="row">
@@ -82,7 +82,7 @@
                                 <button type="submit" class="waves-effect waves-light btn green darken-4">Connexion</button>
                             </div>
                             <div class="col s12 flex-space">
-                                <a id="oubliMdp" href="#" class="center">Mot de passe oublier?</a>
+                                <a id="oubliMdp" href="#" class="center">Mot de passe oublié ?</a>
                             </div>
                         </div>
                     </form>
@@ -133,7 +133,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input name="password" id="password" type="password" class="validate">
-                                    <label for="password">Password</label>
+                                    <label for="password">Mot de passe</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -162,5 +162,5 @@
 </script>
 <?php endif; ?>
 <footer>
-    <div class="container-fluid green-text text-darken-4 center">© 2017 Designed & Created by CROMA, All rights reserved.    <a href="#" class="green-text text-darken-4 waves-effect waves-teal">   - Mentions légales</a>     <a href="#" class="green-text text-darken-4 waves-effect waves-teal active">   - A propos  </a></div>
+    <div class="container-fluid green-text text-darken-4 center">© 2017 Conçu & Créé par CROMA, Tous droits réservés.    <a href="#" class="green-text text-darken-4 waves-effect waves-teal">   - Mentions légales</a>     <a href="#" class="green-text text-darken-4 waves-effect waves-teal active">   - A propos  </a></div>
 </footer>
